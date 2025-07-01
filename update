@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kanaya3173 | Validator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>kanaya3173</h1>
+      <p class="tagline">Validator is my live</p>
+      <a href="#tentang" class="btn">Kenali Saya</a>
+    </div>
+  </header>
+
+  <section id="tentang">
+    <div class="container">
+      <h2>Tentang Saya</h2>
+      <p>Saya adalah validator aktif yang berdedikasi mendukung ekosistem blockchain. Dengan komitmen terhadap desentralisasi dan keamanan, saya percaya masa depan Web3 ada di tangan komunitas.</p>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="container">
+      <h2>Hubungi Saya</h2>
+      <p>Email: rahmatardihandoyo@gmail.com</p>
+      <p>Twitter: <a href="https://twitter.com/ardihandoyo" target="_blank">@kanaya3173</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 kanaya3173. Dibuat dengan dedikasi validator ✨</p>
+  </footer>
+</body>
+</html>
