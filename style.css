@@ -1,21 +1,57 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #0f1115;
+  background: #0a1733;
   color: #ffffff;
 }
 
-.container {
-  width: 90%;
-  max-width: 960px;
-  margin: auto;
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #081429;
   padding: 2rem 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h2 {
+  color: #00f7ef;
+  text-align: center;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.sidebar nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid transparent;
+  transition: all 0.3s;
+}
+
+.sidebar nav a:hover {
+  background-color: #0d2347;
+  border-left: 4px solid #00f7ef;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
 }
 
 .hero {
   text-align: center;
   padding: 4rem 1rem;
-  background-color: #12161e;
+  background-color: #11284e;
+  border-radius: 10px;
 }
 
 .hero .brand {
@@ -58,20 +94,21 @@ body {
   color: #000;
 }
 
-.validator {
-  background: #1a1f27;
-  padding: 3rem 1rem;
-  text-align: center;
+.validator, .contact {
+  background: #11284e;
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+  border-radius: 10px;
 }
 
-.validator h2 {
+.validator h2, .contact h2 {
   color: #00f7ef;
   margin-bottom: 1rem;
 }
 
-.validator p {
+.validator p, .contact p {
   color: #ccc;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .projects a {
@@ -90,6 +127,5 @@ body {
 footer {
   text-align: center;
   padding: 2rem 1rem;
-  background: #0f1115;
   color: #666;
 }
