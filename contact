@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - kanaya3173</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>kanaya3173</h2>
+      <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">👤 About</a>
+        <a href="status.html">📊 Status</a>
+        <a href="blog.html">📝 Blog</a>
+        <a href="contact.html">📬 Contact</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <section class="section fade-in">
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+        <p>Email: <a href="mailto:rahmatardihandoyo@gmail.com">rahmatardihandoyo@gmail.com</a></p>
+        <p>Twitter: <a href="https://twitter.com/ardihandoyo" target="_blank">@ardihandoyo</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
