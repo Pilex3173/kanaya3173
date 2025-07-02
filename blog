@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog - kanaya3173</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>kanaya3173</h2>
+      <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">👤 About</a>
+        <a href="status.html">📊 Status</a>
+        <a href="blog.html">📝 Blog</a>
+        <a href="contact.html">📬 Contact</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <section class="section fade-in">
+        <h2>Latest Blog</h2>
+        <article class="blog-post">
+          <h3>Why Validators Matter</h3>
+          <p><em>June 2025</em></p>
+          <p>Validators play a crucial role in decentralizing networks and maintaining consensus...</p>
+        </article>
+        <article class="blog-post">
+          <h3>5 Lessons from Running a Node</h3>
+          <p><em>May 2025</em></p>
+          <p>From uptime to slashing risks, here are key insights from managing multiple chains...</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
