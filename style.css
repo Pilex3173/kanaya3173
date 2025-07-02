@@ -1,20 +1,21 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #0a1733;
+  background: url('1000155552.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: #ffffff;
 }
 
 .layout {
   display: flex;
   min-height: 100vh;
+  backdrop-filter: brightness(0.2);
 }
 
 .sidebar {
   width: 220px;
   background: #081429;
   padding: 2rem 1rem;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar h2 {
@@ -50,17 +51,12 @@ body {
 .hero {
   text-align: center;
   padding: 4rem 1rem;
-  background-color: #11284e;
+  background-color: rgba(17, 40, 78, 0.8);
   border-radius: 10px;
 }
 
 .hero .brand {
   color: #00f7ef;
-}
-
-.hero p {
-  margin: 1rem 0;
-  color: #ccc;
 }
 
 .buttons {
@@ -76,11 +72,6 @@ body {
   border-radius: 10px;
   font-weight: bold;
   text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #02e1db;
 }
 
 .btn.outline {
@@ -89,25 +80,15 @@ body {
   color: #00f7ef;
 }
 
-.btn.outline:hover {
-  background: #00f7ef;
-  color: #000;
-}
-
-.validator, .contact {
-  background: #11284e;
+.validator, .contact, .blog {
+  background: rgba(17, 40, 78, 0.8);
   padding: 3rem 2rem;
   margin-top: 2rem;
   border-radius: 10px;
 }
 
-.validator h2, .contact h2 {
+.validator h2, .contact h2, .blog h2 {
   color: #00f7ef;
-  margin-bottom: 1rem;
-}
-
-.validator p, .contact p {
-  color: #ccc;
   margin-bottom: 1rem;
 }
 
@@ -117,15 +98,10 @@ body {
   color: #00f7ef;
   text-decoration: none;
   font-size: 1.2rem;
-  transition: 0.3s;
-}
-
-.projects a:hover {
-  text-decoration: underline;
 }
 
 footer {
   text-align: center;
   padding: 2rem 1rem;
-  color: #666;
+  color: #ccc;
 }
