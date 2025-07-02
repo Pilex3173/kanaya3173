@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - kanaya3173</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>kanaya3173</h2>
+      <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">👤 About</a>
+        <a href="status.html">📊 Status</a>
+        <a href="blog.html">📝 Blog</a>
+        <a href="contact.html">📬 Contact</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <section class="section fade-in">
+        <h2>About Me</h2>
+        <p>I am a blockchain validator passionate about decentralization, uptime, and securing the future of Web3.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
