@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Status - kanaya3173</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>kanaya3173</h2>
+      <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">👤 About</a>
+        <a href="status.html">📊 Status</a>
+        <a href="blog.html">📝 Blog</a>
+        <a href="contact.html">📬 Contact</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <section class="section fade-in">
+        <h2>Live Validator Status</h2>
+        <ul class="project-list">
+          <li><a href="https://explorer.lumera.network" target="_blank"><strong>Lumera</strong></a>: ✅ Active</li>
+          <li><a href="https://explorer.maouam.nodelab.my.id/empeiria-testnet/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l" target="_blank"><strong>Empe</strong></a>: 🛠️ Syncing</li>
+          <li><a href="https://explorer.zenchain.xyz" target="_blank"><strong>Zenchain</strong></a>: ✅ Active</li>
+          <li><a href="https://explorer.helios.network" target="_blank"><strong>Helios</strong></a>: ⏳ Pending</li>
+          <li><a href="https://explorer.xos.network" target="_blank"><strong>Xos</strong></a>: 🔴 Offline</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
