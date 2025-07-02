@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>kanaya3173 | Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>kanaya3173</h2>
+      <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">👤 About</a>
+        <a href="status.html">📊 Status</a>
+        <a href="blog.html">📝 Blog</a>
+        <a href="contact.html">📬 Contact</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <section id="home" class="section fade-in">
+        <img src="profile.jpg" alt="Profile" class="profile-img" />
+        <h1>kanaya3173</h1>
+        <p class="tagline">Validator is my life</p>
+        <a href="about.html" class="btn">Know More</a>
+      </section>
+      <footer>
+        <p>© 2025 kanaya3173. Built with passion for validation ⚙️</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
