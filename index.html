@@ -54,3 +54,34 @@
   </div>
 </body>
 </html>
+// Tambahkan di bagian DOMContentLoaded
+fetch("https://empeiria-testnet-api.validator247.com/cosmos/staking/v1beta1/validators/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l")
+  .then(res => res.json())
+  .then(json => {
+    const status = json.validator.status;
+    let label = 'Unknown';
+    let cssClass = 'offline';
+
+    if (status === 'BOND_STATUS_BONDED') {
+      label = 'Active';
+      cssClass = 'active';
+    } else if (status === 'BOND_STATUS_UNBONDING') {
+      label = 'Unbonding';
+      cssClass = 'pending';
+    } else if (status === 'BOND_STATUS_UNBONDED') {
+      label = 'Unbonded';
+      cssClass = 'offline';
+    }
+
+    const empe = document.createElement("div");
+    empe.className = "status-card empe";
+    empe.innerHTML = `<h3>Empe</h3><span class="badge ${cssClass}">${label}</span>`;
+    document.getElementById("validatorStatus").appendChild(empe);
+  })
+  .catch(err => {
+    const empe = document.createElement("div");
+    empe.className = "status-card empe";
+    empe.innerHTML = `<h3>Empe</h3><span class="badge offline">Error</span>`;
+    document.getElementById("validatorStatus").appendChild(empe);
+  });
+  
