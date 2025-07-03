@@ -15,9 +15,26 @@ body {
   color: white;
   padding: 20px;
   box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
+}
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10000;
 }
 .sidebar img.profile {
-  width: 100%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 50%;
   margin-bottom: 20px;
 }
@@ -49,4 +66,17 @@ body::after {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.2);
   z-index: 9999;
+}
+.status-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.validator-card {
+  background-color: #ffffff;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 }
