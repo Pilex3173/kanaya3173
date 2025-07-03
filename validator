@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Validator Status</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>kanaya3173</h2>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="validator.html">📊 Validator</a>
+      <a href="blog.html">📝 Blog</a>
+      <a href="contact.html">📬 Contact</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <section class="section fade-in">
+      <h2>Validator Status</h2>
+      <ul id="validator-status">
+        <!-- Filled by script.js -->
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
