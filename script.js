@@ -1,33 +1,30 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const validatorList = document.getElementById("validator-status");
-  if (validatorList) {
-    const validators = [
-      { name: "Empe", url: "https://explorer.maouam.nodelab.my.id/empeiria-testnet/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l" },
-      { name: "Lumera", url: "#" },
-      { name: "Zenchain", url: "#" },
-      { name: "Helios", url: "#" },
-      { name: "Xos", url: "#" }
-    ];
-    validators.forEach(v => {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="${v.url}" target="_blank">${v.name}</a>: <span class="status">Online</span>`;
-      validatorList.appendChild(li);
+  const sections = document.querySelectorAll(".fade-in");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
     });
-  }
+  }, { threshold: 0.1 });
 
-  const blogContainer = document.getElementById("blog-posts");
-  if (blogContainer) {
-    fetch("posts.json")
-      .then(res => res.json())
-      .then(data => {
-        blogContainer.innerHTML = data.map(post => `
-          <article class="blog-post">
-            <h3>${post.title}</h3>
-            <p><em>${post.date}</em></p>
-            <p>${post.content}</p>
-          </article>
-        `).join('');
-      });
-  }
+  sections.forEach(section => observer.observe(section));
+
+  // Mock fetch API for validator status
+  const data = [
+    { name: "Lumera", status: "active" },
+    { name: "Empe", status: "syncing" },
+    { name: "Zenchain", status: "active" },
+    { name: "Helios", status: "pending" },
+    { name: "Xos", status: "offline" }
+  ];
+
+  const container = document.getElementById("validatorStatus");
+  data.forEach(validator => {
+    const div = document.createElement("div");
+    div.className = "status-card";
+    div.innerHTML = `<h3>${validator.name}</h3><span class="badge ${validator.status}">${validator.status.charAt(0).toUpperCase() + validator.status.slice(1)}</span>`;
+    container.appendChild(div);
+  });
 });
