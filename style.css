@@ -2,7 +2,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  border: 10px solid #e74c3c;
+  border: 10px solid #fff8dc; /* putih keemasan (cornsilk) */
+  
   position: relative;
 }
 .layout {
