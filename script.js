@@ -28,3 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(div);
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const validators = document.querySelectorAll(".validator");
+
+  validators.forEach(card => {
+    const url = card.dataset.url;
+    const statusEl = card.querySelector(".status-text");
+
+    fetch(url, { method: "HEAD", mode: "no-cors" })
+      .then(() => {
+        statusEl.textContent = "✅ Online";
+      })
+      .catch(() => {
+        statusEl.textContent = "🔴 Offline or Unreachable";
+      });
+  });
+});
