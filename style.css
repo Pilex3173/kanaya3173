@@ -98,3 +98,17 @@ body::after {
   width: 250px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 }
+.sidebar .submenu {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.sidebar .submenu a {
+  font-size: 0.9em;
+  color: #ccc;
+  margin-left: 10px;
+  display: block;
+  text-decoration: none;
+}
+.sidebar .submenu a:hover {
+  text-decoration: underline;
+}
