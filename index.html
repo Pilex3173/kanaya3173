@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,10 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+      <img src="1000155552.jpg" alt="Profile Image" class="profile" />
       <h2>☑ PILEX3173</h2>
       <nav>
         <a href="#home">🏠 Home</a>
@@ -59,5 +62,11 @@
       </footer>
     </main>
   </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
