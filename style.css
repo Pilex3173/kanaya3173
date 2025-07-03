@@ -24,28 +24,46 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #transparent;
-  color: white;
-  border: none;
+  background-color: transparent;
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
   padding: 10px 15px;
   cursor: pointer;
   z-index: 10000;
+  border-radius: 8px;
+  font-weight: bold;
+  backdrop-filter: blur(4px);
 }
 .sidebar img.profile {
-  width: 50px;
-  height: 50px;
-  object-fit: solid;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin: 40px auto 20px auto;
+  display: block;
 }
 .sidebar h2 {
   margin-top: 0;
 }
 .sidebar nav a {
   display: block;
-  color: white;
+  color: #3498db;
   text-decoration: none;
   margin: 10px 0;
+}
+.sidebar .submenu {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.sidebar .submenu a {
+  font-size: 0.9em;
+  color: #85c1e9;
+  margin-left: 10px;
+  display: block;
+  text-decoration: none;
+}
+.sidebar .submenu a:hover {
+  text-decoration: underline;
 }
 .main-content {
   flex-grow: 1;
@@ -80,18 +98,3 @@ body::after {
   width: 250px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 }
-.sidebar .submenu {
-  margin-left: 10px;
-  margin-top: 5px;
-}
-.sidebar .submenu a {
-  font-size: 0.9em;
-  color: #ccc;
-  margin-left: 10px;
-  display: block;
-  text-decoration: none;
-}
-.sidebar .submenu a:hover {
-  text-decoration: underline;
-}
-
