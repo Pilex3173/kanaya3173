@@ -115,6 +115,19 @@ footer {
 a {
   color: #0056b3;
 }
+.status-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.validator {
+  background: #123456;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+}
+
 a:hover {
   text-decoration: underline;
 }
