@@ -113,3 +113,12 @@ body::after {
 .sidebar .submenu a:hover {
   text-decoration: underline;
 }
+#contact p {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+}
+
+#contact i {
+  margin-right: 8px;
+  color: #5865F2; /* Discord Blue */
+  }
