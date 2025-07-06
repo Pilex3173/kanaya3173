@@ -67,33 +67,79 @@
             </div>
           </div>
       </section>
-      
-          <section id="status">
-        <h2>Live Node Status</h2>
-        <div class="status-grid">
-          <div class="Node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel">
-            <h3>Multiple</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="Node-card" data-url="https://app.nodepay.ai/dashboard">
-            <h3>Nodepay</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="Node-card" data-url="https://bless.network/dashboardh">
-            <h3>Bless</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="Node-card" data-url="https://commingsoon">
-            <h3>comingsoon</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="Node-card" data-url="https://commingsoon">
-            <h3>comingsoon</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          </div>
-        </div>
-      </section>
+      <style>
+  #status {
+    padding: 2rem;
+    background: #0f1e13;
+    color: #fff;
+  }
+
+  #status h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #a5d6a7;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .Node-card {
+    background: #1b3c1b;
+    border: 2px solid #66bb6a;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 255, 100, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+
+  .Node-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 255, 100, 0.2);
+  }
+
+  .Node-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #c8e6c9;
+  }
+
+  .Node-card .status-text {
+    font-size: 0.95rem;
+    color: #b2ff59;
+  }
+</style>
+
+<section id="status">
+  <h2>Live Node Status</h2>
+  <div class="status-grid">
+    <div class="Node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel">
+      <h3>Multiple</h3>
+      <p class="status-text">Loading...</p>
+    </div>
+    <div class="Node-card" data-url="https://app.nodepay.ai/dashboard">
+      <h3>Nodepay</h3>
+      <p class="status-text">Loading...</p>
+    </div>
+    <div class="Node-card" data-url="https://bless.network/dashboardh">
+      <h3>Bless</h3>
+      <p class="status-text">Loading...</p>
+    </div>
+    <div class="Node-card" data-url="https://comingsoon">
+      <h3>Coming Soon</h3>
+      <p class="status-text">Loading...</p>
+    </div>
+    <div class="Node-card" data-url="https://comingsoon">
+      <h3>Coming Soon</h3>
+      <p class="status-text">Loading...</p>
+    </div>
+  </div>
+</section>
 
       <section id="blog">
   <h2>Blog</h2>
