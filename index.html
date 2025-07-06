@@ -42,31 +42,113 @@
         <p>We are a validator active in many testnets and mainnets. Passionate about uptime, decentralization, and transparency.</p>
       </section>
 
-      <section id="status">
-        <h2>Live Validator Status</h2>
-        <div class="status-grid">
-          <div class="validator-card" data-url="https://portal.testnet.lumera.io/lumera-testnet-2/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
-            <h3>Lumera</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
-            <h3>Empe</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="validator-card" data-url="https://node.zenchain.io/#/staking">
-            <h3>Zenchain</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="validator-card" data-url="https://commingsoon">
-            <h3>XOS</h3>
-            <p class="status-text">Loading...</p>
-          </div>
-          <div class="validator-card" data-url="https://commingsoon">
-            <h3>Helios</h3>
-            <p class="status-text">Loading...</p>
-            </div>
-          </div>
-      </section>
+      <style>
+  #status {
+    padding: 2rem;
+    background: #0f1e13;
+    color: #fff;
+  }
+
+  #status h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #a5d6a7;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .validator-card {
+    background: #1b3c1b;
+    border: 2px solid #66bb6a;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 255, 100, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+
+  .validator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 255, 100, 0.2);
+  }
+
+  .validator-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #c8e6c9;
+  }
+
+  .status-text {
+    font-size: 0.95rem;
+    color: #b2ff59;
+  }
+
+  .status-online {
+    color: #4caf50;
+    font-weight: bold;
+  }
+
+  .status-offline {
+    color: #ef5350;
+    font-weight: bold;
+  }
+</style>
+
+<section id="status">
+  <h2>Live Validator Status</h2>
+  <div class="status-grid">
+    <div class="validator-card" data-url="https://portal.testnet.lumera.io/lumera-testnet-2/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
+      <h3>Lumera</h3>
+      <p class="status-text">Checking...</p>
+    </div>
+    <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
+      <h3>Empe</h3>
+      <p class="status-text">Checking...</p>
+    </div>
+    <div class="validator-card" data-url="https://node.zenchain.io/#/staking">
+      <h3>Zenchain</h3>
+      <p class="status-text">Checking...</p>
+    </div>
+    <div class="validator-card" data-url="https://commingsoon">
+      <h3>XOS</h3>
+      <p class="status-text">Checking...</p>
+    </div>
+    <div class="validator-card" data-url="https://commingsoon">
+      <h3>Helios</h3>
+      <p class="status-text">Checking...</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".validator-card").forEach((card) => {
+    const url = card.getAttribute("data-url");
+    const statusEl = card.querySelector(".status-text");
+
+    // Ping the URL with HEAD or GET (safer)
+    fetch(url, { method: "GET", mode: "no-cors" })
+      .then(() => {
+        statusEl.textContent = "🟢 Online";
+        statusEl.classList.add("status-online");
+      })
+      .catch(() => {
+        statusEl.textContent = "🔴 Offline";
+        statusEl.classList.add("status-offline");
+      });
+
+    // Click to open
+    card.addEventListener("click", () => {
+      window.open(url, "_blank");
+    });
+  });
+      </script>
+      
       <style>
   #status {
     padding: 2rem;
