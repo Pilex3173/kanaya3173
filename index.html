@@ -1,240 +1,188 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PILEX3173 | Validator</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0e1c1b;
+      color: #e0f2f1;
+    }
+    header {
+      background-color: #092f25;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #26a69a;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #a7ffeb;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #b2dfdb;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #ffffff;
+    }
+    main {
+      padding: 2rem 1.5rem;
+    }
+    section {
+      background-color: #111a13;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-top: 2px solid #26a69a;
+      box-shadow: 0 4px 15px rgba(0, 255, 170, 0.1);
+    }
+    section h2 {
+      font-size: 1.6rem;
+      color: #a7ffeb;
+      margin-bottom: 1rem;
+      border-bottom: 1px dashed #26a69a;
+      padding-bottom: 0.5rem;
+    }
+    section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #c8e6c9;
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .validator-card, .node-card {
+      background: #1b3c1b;
+      border: 2px solid #66bb6a;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 255, 100, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .validator-card:hover, .node-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 255, 100, 0.2);
+    }
+    .status-text {
+      font-size: 0.95rem;
+      color: #b2ff59;
+    }
+    .status-online {
+      color: #4caf50;
+      font-weight: bold;
+    }
+    .status-offline {
+      color: #ef5350;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #0d1b1e;
+      color: #b2dfdb;
+      font-size: 0.95rem;
+      border-top: 2px solid #26a69a;
+    }
+    @media (max-width: 600px) {
+      nav {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+      }
+      nav a {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
-  <div class="layout">
-    <aside class="sidebar" id="sidebar">
-  <img src="1000155552.jpg" alt="Profile Image" class="profile" />
-  <h2>☑ PILEX3173</h2>
+
+<header>
+  <div class="logo">☑ PILEX3173</div>
   <nav>
     <a href="#home">🏠 Home</a>
     <a href="#about">👤 About</a>
     <a href="#status">📊 Status</a>
     <a href="#blog">📝 Blog</a>
-    <a href="#">🔍 Explore</a>
-    <div class="submenu">
-      <a href="https://explore.pilex.web.id/Empe" target="_blank">Empe</a>
-      <a href="https://explore.pilex.web.id/lumera" target="_blank">Lumera</a>
-      <a href="https://zentrace.io/" target="_blank">Zenchain</a>
-      <a href="https://testnet.xoscan.io/" target="_blank">Xos</a>
-      <a href="https://explorer.helioschainlabs.org/" target="_blank">Helios</a>
-      <a href=https://explore.pilex.web.id/kiichain" target="_blank">Kiichain</a>
-    </div>
+    <a href="#contact">📬 Contact</a>
   </nav>
-</aside>
+</header>
 
-    <main class="main-content">
-      <section id="home">
-        <h1>Welcome to PILEX3173</h1>
-        <p class="tagline">We Trusted Validator for Decentralized Future</p>
-      </section>
+<main>
+  <section id="home">
+    <h2>Welcome to PILEX3173</h2>
+    <p class="tagline">We Trusted Validator for Decentralized Future</p>
+  </section>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>We are a validator active in many testnets and mainnets. Passionate about uptime, decentralization, and transparency.</p>
-      </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>We are a validator active in many testnets and mainnets. Passionate about uptime, decentralization, and transparency.</p>
+  </section>
 
-      <style>
-  #status {
-    padding: 2rem;
-    background: #0f1e13;
-    color: #fff;
-  }
-
-  #status h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #a5d6a7;
-  }
-
-  .status-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem;
-  }
-
-  .validator-card {
-    background: #1b3c1b;
-    border: 2px solid #66bb6a;
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 255, 100, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-  }
-
-  .validator-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 255, 100, 0.2);
-  }
-
-  .validator-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #c8e6c9;
-  }
-
-  .status-text {
-    font-size: 0.95rem;
-    color: #b2ff59;
-  }
-
-  .status-online {
-    color: #4caf50;
-    font-weight: bold;
-  }
-
-  .status-offline {
-    color: #ef5350;
-    font-weight: bold;
-  }
-</style>
-
-<section id="status">
-  <h2>Live Validator Status</h2>
-  <div class="status-grid">
-    <div class="validator-card" data-url="https://portal.testnet.lumera.io/lumera-testnet-2/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
-      <h3>Lumera</h3>
-      <p class="status-text">Checking...</p>
+  <section id="status">
+    <h2>Live Validator Status</h2>
+    <div class="status-grid">
+      <div class="validator-card" data-url="https://portal.testnet.lumera.io/lumera-testnet-2/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
+        <h3>Lumera</h3><p class="status-text">Checking...</p>
+      </div>
+      <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
+        <h3>Empe</h3><p class="status-text">Checking...</p>
+      </div>
+      <div class="validator-card" data-url="https://node.zenchain.io/#/staking">
+        <h3>Zenchain</h3><p class="status-text">Checking...</p>
+      </div>
     </div>
-    <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
-      <h3>Empe</h3>
-      <p class="status-text">Checking...</p>
+  </section>
+
+  <section id="node-status">
+    <h2>Live Node Status</h2>
+    <div class="status-grid">
+      <div class="node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel">
+        <h3>Multiple</h3><p class="status-text">Checking...</p>
+      </div>
+      <div class="node-card" data-url="https://app.nodepay.ai/dashboard">
+        <h3>Nodepay</h3><p class="status-text">Checking...</p>
+      </div>
     </div>
-    <div class="validator-card" data-url="https://node.zenchain.io/#/staking">
-      <h3>Zenchain</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-    <div class="validator-card" data-url="https://commingsoon">
-      <h3>XOS</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-    <div class="validator-card" data-url="https://commingsoon">
-      <h3>Helios</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-  </div>
-</section>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <p>
+      At <strong>PILEX3173</strong>, we take pride in our consistency. Our validator nodes have maintained excellent uptime across multiple networks and testnets.
+      We focus on reliability, security, and contributing to decentralized ecosystems.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a></p>
+    <p><i class="fab fa-twitter"></i> Twitter: <a href="https://twitter.com/pilex3173" target="_blank">@pilex3173</a></p>
+    <p><i class="fab fa-discord"></i> Discord: <a href="https://discord.com/users/pilex3173" target="_blank">@pilex3173</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 PILEX3173. Trusted Validator ⚙️</p>
+</footer>
 
 <script>
-  document.querySelectorAll(".validator-card").forEach((card) => {
-    const url = card.getAttribute("data-url");
-    const statusEl = card.querySelector(".status-text");
-
-    // Ping the URL with HEAD or GET (safer)
-    fetch(url, { method: "GET", mode: "no-cors" })
-      .then(() => {
-        statusEl.textContent = "🟢 Online";
-        statusEl.classList.add("status-online");
-      })
-      .catch(() => {
-        statusEl.textContent = "🔴 Offline";
-        statusEl.classList.add("status-offline");
-      });
-
-    // Click to open
-    card.addEventListener("click", () => {
-      window.open(url, "_blank");
-    });
-  });
-      </script>
-      
-  <style>
-  #node-status {
-    padding: 2rem;
-    background: #111a13;
-    color: #fff;
-  }
-
-  #node-status h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #a5d6a7;
-  }
-
-  .status-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem;
-  }
-
-  .node-card {
-    background: #1c3720;
-    border: 2px solid #66bb6a;
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 255, 100, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-  }
-
-  .node-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 255, 100, 0.2);
-  }
-
-  .node-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #c8e6c9;
-  }
-
-  .status-text {
-    font-size: 0.95rem;
-    color: #b2ff59;
-  }
-
-  .status-online {
-    color: #4caf50;
-    font-weight: bold;
-  }
-
-  .status-offline {
-    color: #ef5350;
-    font-weight: bold;
-  }
-</style>
-
-<section id="node-status">
-  <h2>Live Node Status</h2>
-  <div class="status-grid">
-    <div class="node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel">
-      <h3>Multiple</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-    <div class="node-card" data-url="https://app.nodepay.ai/dashboard">
-      <h3>Nodepay</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-    <div class="node-card" data-url="https://bless.network/dashboardh">
-      <h3>Bless</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-    <div class="node-card" data-url="https://commingsoon">
-      <h3>Coming Soon</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-    <div class="node-card" data-url="https://commingsoon">
-      <h3>Coming Soon</h3>
-      <p class="status-text">Checking...</p>
-    </div>
-  </div>
-</section>
-
-<script>
-  document.querySelectorAll(".node-card").forEach((card) => {
+  document.querySelectorAll(".validator-card, .node-card").forEach((card) => {
     const url = card.getAttribute("data-url");
     const statusEl = card.querySelector(".status-text");
 
@@ -253,97 +201,6 @@
     });
   });
 </script>
-      
-    
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-      <style>
-  body {
-    font-family: 'Inter', sans-serif;
-  }
 
-  section {
-    padding: 2.5rem 1.5rem;
-    background-color: #111a13;
-    color: #e0f2f1;
-    border-top: 2px solid #26a69a;
-    margin-top: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 255, 170, 0.1);
-  }
-
-  section h2 {
-    font-size: 1.6rem;
-    color: #a7ffeb;
-    margin-bottom: 1rem;
-    border-bottom: 1px dashed #26a69a;
-    padding-bottom: 0.5rem;
-  }
-
-  section p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #c8e6c9;
-    max-width: 800px;
-  }
-
-  section a {
-    color: #4dd0e1;
-    text-decoration: none;
-  }
-
-  section a:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #0d1b1e;
-    color: #b2dfdb;
-    font-size: 0.95rem;
-    border-top: 2px solid #26a69a;
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 600px) {
-    section {
-      padding: 2rem 1rem;
-    }
-  }
-      </style>
-      
-      <section id="blog">
-  <h2>Blog</h2>
-  <p>
-    At <strong>PILEX3173</strong>, we take pride in our consistency. Our validator nodes have maintained excellent uptime across multiple networks and testnets.
-    We focus on reliability, security, and contributing to decentralized ecosystems. Whether on Empe, Lumera, Zenchain, or other networks, 
-    our infrastructure is continuously optimized for performance and resilience. Thank you for trusting us to help secure the future of Web3.
-  </p>
-</section>
-      
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<section id="contact">
-  <h2>Contact</h2>
-  <p>
-    <i class="fas fa-envelope"></i>
-    Email:
-    <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a>
-  </p>
-  <p>
-    <i class="fab fa-twitter"></i>
-    Twitter:
-    <a href="https://twitter.com/pilex3173" target="_blank">@pilex3173</a>
-  </p>
-  <p>
-    <i class="fab fa-discord"></i>
-    Discord:
-    <a href="https://discord.com/users/pilex3173" target="_blank">@pilex3173</a>
-  </p>
-</section>
-      
-
-      
-<footer>
-  <p>© 2025 PILEX3173. Trusted Validator ⚙️</p>
-</footer>
-      
+</body>
+</html>
