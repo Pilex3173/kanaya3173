@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-
+  
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
       background: #050505;
       color: #e0f2f1;
-      font-size: 0.875rem;
     }
 
     header {
@@ -43,28 +43,18 @@
       font-size: 1.2rem;
       font-weight: bold;
       color: #80deea;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(270deg, #00ffff, #66ffcc, #9966ff, #00ffff);
-      background-size: 600% 600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: auroraMove 8s ease infinite;
-      text-shadow: 0 0 6px rgba(102, 255, 204, 0.5);
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
     }
 
     nav a {
+      margin-left: 1rem;
       text-decoration: none;
       color: #b2ebf2;
       font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
     }
 
     nav a:hover {
@@ -86,10 +76,14 @@
 
     section h2 {
       font-size: 1.3rem;
-      color: #80deea;
-      margin-bottom: 0.8rem;
+      background: linear-gradient(270deg, #00ffff, #66ffcc, #9966ff, #00ffff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: auroraMove 8s ease infinite;
       border-bottom: 1px dashed #4dd0e1;
       padding-bottom: 0.4rem;
+      text-shadow: 0 0 6px rgba(102, 255, 204, 0.5);
     }
 
     section p {
@@ -144,10 +138,48 @@
       border-top: 2px solid #4dd0e1;
     }
 
+    #stars-container .star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: fall 6s linear infinite;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    #stars-container .star:nth-child(1) { left: 10%; animation-delay: 0s; }
+    #stars-container .star:nth-child(2) { left: 25%; animation-delay: 1s; }
+    #stars-container .star:nth-child(3) { left: 40%; animation-delay: 2s; }
+    #stars-container .star:nth-child(4) { left: 55%; animation-delay: 0.5s; }
+    #stars-container .star:nth-child(5) { left: 70%; animation-delay: 1.5s; }
+    #stars-container .star:nth-child(6) { left: 85%; animation-delay: 2.5s; }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
     @keyframes auroraMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    #contact a {
+      background: linear-gradient(270deg, #00ffff, #66ffcc, #9966ff, #00ffff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: auroraMove 8s ease infinite;
+      font-weight: bold;
+      text-decoration: none;
+      text-shadow: 0 0 6px rgba(102, 255, 204, 0.5);
+    }
+
+    #contact a:hover {
+      opacity: 0.8;
+      text-shadow: 0 0 12px rgba(102, 255, 204, 0.9);
     }
 
     @media (max-width: 600px) {
@@ -155,20 +187,24 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
       nav {
         flex-direction: column;
         width: 100%;
         margin-top: 0.5rem;
       }
-
       nav a {
         margin: 0.4rem 0;
       }
     }
   </style>
 </head>
+
 <body>
+
+<div id="stars-container">
+  <div class="star"></div><div class="star"></div><div class="star"></div>
+  <div class="star"></div><div class="star"></div><div class="star"></div>
+</div>
 
 <header>
   <div class="logo-wrapper">
@@ -176,12 +212,8 @@
     <div class="logo">PILEX3173</div>
   </div>
   <nav>
-    <a href="https://swap.pilex.web.id/" target="_blank">
-      <img src="swap.png" alt="Swap" style="height: 18px;">Swap
-    </a>
-    <a href="https://explore.pilex.web.id/" target="_blank">
-      <img src="explore.jpeg" alt="Explore" style="height: 18px;">Explore
-    </a>
+    <a href="https://swap.pilex.web.id/" target="_blank"><img src="swap.png" alt="Swap" style="height: 18px; vertical-align: middle; margin-right: 6px;"></a>
+    <a href="https://explore.pilex.web.id/" target="_blank"><img src="explore.jpeg" alt="Explore" style="height: 18px; vertical-align: middle; margin-right: 6px;"></a>
   </nav>
 </header>
 
@@ -199,72 +231,41 @@
   <section id="status">
     <h2>Live Validator Status</h2>
     <div class="status-grid">
-      <div class="validator-card" data-url="https://explore.pilex.web.id/lumera/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
-        <h3>Lumera</h3>
-        <p class="status-text">Checking...</p>
-      </div>
-      <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
-        <h3>Empe</h3>
-        <p class="status-text">Checking...</p>
-      </div>
-      <div class="validator-card" data-url="https://node.zenchain.io/#/staking">
-        <h3>Zenchain</h3>
-        <p class="status-text">Checking...</p>
-      </div>
-      <div class="validator-card" data-url="https://explore.pilex.web.id/xos/staking/cosmosvaloper1mycqyjwvpjpn9apf2qhv4kyqradpcqyt5r53kl">
-        <h3>XOS</h3>
-        <p class="status-text">Checking...</p>
-      </div>
+      <div class="validator-card" data-url="https://explore.pilex.web.id/lumera/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w"><h3>Lumera</h3><p class="status-text">Checking...</p></div>
+      <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l"><h3>Empe</h3><p class="status-text">Checking...</p></div>
+      <div class="validator-card" data-url="https://node.zenchain.io/#/staking"><h3>Zenchain</h3><p class="status-text">Checking...</p></div>
+      <div class="validator-card" data-url="https://explore.pilex.web.id/xos/staking/cosmosvaloper1mycqyjwvpjpn9apf2qhv4kyqradpcqyt5r53kl"><h3>XOS</h3><p class="status-text">Checking...</p></div>
     </div>
   </section>
 
   <section id="node-status">
     <h2>Live Node Status</h2>
     <div class="status-grid">
-      <div class="node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel">
-        <h3>Multiple</h3>
-        <p class="status-text">Checking...</p>
-      </div>
-      <div class="node-card" data-url="https://app.nodepay.ai/dashboard">
-        <h3>Nodepay</h3>
-        <p class="status-text">Checking...</p>
-      </div>
+      <div class="node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel"><h3>Multiple</h3><p class="status-text">Checking...</p></div>
+      <div class="node-card" data-url="https://app.nodepay.ai/dashboard"><h3>Nodepay</h3><p class="status-text">Checking...</p></div>
     </div>
   </section>
 
   <section id="tutorials">
     <h2>Tutorial Run Validator and Node</h2>
     <div class="status-grid">
-      <div class="validator-card" onclick="location.href='Xos.html'">
-        <h3>XOS Network</h3>
-      </div>
-      <div class="validator-card" onclick="location.href='tutorial2.html'">
-        <h3>⚙️ Tutorial 2</h3>
-      </div>
-      <div class="validator-card" onclick="location.href='tutorial3.html'">
-        <h3>📡 Tutorial 3</h3>
-      </div>
-      <div class="validator-card" onclick="location.href='tutorial4.html'">
-        <h3>🔒 Tutorial 4</h3>
-      </div>
-      <div class="validator-card" onclick="location.href='tutorial5.html'">
-        <h3>💾 Tutorial 5</h3>
-      </div>
-      <div class="validator-card" onclick="location.href='tutorial6.html'">
-        <h3>📁 Tutorial 6</h3>
-      </div>
+      <div class="validator-card" onclick="location.href='Xos.html'"><h3>XOS Network</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial2.html'"><h3>⚙️ Tutorial 2</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial3.html'"><h3>📡 Tutorial 3</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial4.html'"><h3>🔒 Tutorial 4</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial5.html'"><h3>💾 Tutorial 5</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial6.html'"><h3>📁 Tutorial 6</h3></div>
     </div>
   </section>
 
   <section id="contact">
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
     <h2>Contact</h2>
     <div style="display: flex; flex-direction: column; gap: 0.6rem;">
       <div><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a></div>
       <div><i class="fab fa-twitter"></i> <strong>Twitter:</strong> <a href="https://twitter.com/pilex3173">@pilex3173</a></div>
-      <div><i class="fab fa-twitter"></i> <strong>Alt:</strong> <a href="https://twitter.com/ardihandoyo">@ardihandoyo</a></div>
+      <div><i class="fab fa-twitter"></i> <strong>Twitter Alt:</strong> <a href="https://twitter.com/ardihandoyo">@ardihandoyo</a></div>
       <div><i class="fab fa-discord"></i> <strong>Discord:</strong> <a href="https://discord.com/users/pilex3173">@pilex3173</a></div>
-      <div><i class="fab fa-discord"></i> <strong>Alt:</strong> <a href="https://discord.com/users/rahmatardihandoyo">@rahmatardihandoyo</a></div>
+      <div><i class="fab fa-discord"></i> <strong>Discord Alt:</strong> <a href="https://discord.com/users/rahmatardihandoyo">@rahmatardihandoyo</a></div>
       <div><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Pilex3173">@Pilex3173</a></div>
     </div>
   </section>
