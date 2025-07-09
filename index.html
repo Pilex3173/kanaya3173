@@ -6,6 +6,8 @@
   <title>PILEX3173 | Validator</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <style>
     body {
       margin: 0;
@@ -237,46 +239,117 @@
 </section>
 
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-      <div style="display: flex; align-items: center; gap: 0.5rem;">
-        <i class="fas fa-envelope" style="min-width: 20px;"></i>
-        <strong>Email:</strong>
-        <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a>
-      </div>
+  <style>
+  #contact {
+    background-color: #0b0c10;
+    color: #fff;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
 
-      <div style="display: flex; align-items: center; gap: 0.5rem;">
-        <i class="fab fa-twitter" style="min-width: 20px;"></i>
-        <strong>Twitter:</strong>
-        <a href="https://twitter.com/pilex3173" target="_blank">@pilex3173</a>
-      </div>
+  #contact a {
+    background: linear-gradient(270deg, #00ffff, #66ffcc, #9966ff, #00ffff);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: auroraMove 8s ease infinite;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    text-shadow: 0 0 6px rgba(102, 255, 204, 0.5);
+  }
 
-      <div style="display: flex; align-items: center; gap: 0.5rem;">
-        <i class="fab fa-twitter" style="min-width: 20px;"></i>
-        <strong>Twitter Alt:</strong>
-        <a href="https://twitter.com/ardihandoyo" target="_blank">@ardihandoyo</a>
-      </div>
+  #contact a:hover {
+    opacity: 0.8;
+    text-shadow: 0 0 12px rgba(102, 255, 204, 0.9);
+  }
 
-      <div style="display: flex; align-items: center; gap: 0.5rem;">
-        <i class="fab fa-discord" style="min-width: 20px;"></i>
-        <strong>Discord:</strong>
-        <a href="https://discord.com/users/pilex3173" target="_blank">@pilex3173</a>
-      </div>
+  @keyframes auroraMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
-      <div style="display: flex; align-items: center; gap: 0.5rem;">
-        <i class="fab fa-discord" style="min-width: 20px;"></i>
-        <strong>Discord Alt:</strong>
-        <a href="https://discord.com/users/rahmatardihandoyo" target="_blank">@rahmatardihandoyo</a>
-      </div>
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    animation: fall 3s linear infinite;
+    opacity: 0.8;
+  }
 
-      <div style="display: flex; align-items: center; gap: 0.5rem;">
-        <i class="fab fa-github" style="min-width: 20px;"></i>
-        <strong>GitHub:</strong>
-        <a href="https://github.com/Pilex3173" target="_blank">@Pilex3173</a>
-      </div>
+  @keyframes fall {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) translateX(100px);
+      opacity: 0;
+    }
+  }
+
+  /* Random posisi bintang jatuh */
+  .star:nth-child(1) { left: 5%; animation-delay: 0s; }
+  .star:nth-child(2) { left: 20%; animation-delay: 1s; }
+  .star:nth-child(3) { left: 35%; animation-delay: 2s; }
+  .star:nth-child(4) { left: 50%; animation-delay: 0.5s; }
+  .star:nth-child(5) { left: 70%; animation-delay: 1.5s; }
+  .star:nth-child(6) { left: 85%; animation-delay: 2.5s; }
+</style>
+
+<section id="contact">
+  <!-- Bintang Jatuh -->
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+
+  <h2>Contact</h2>
+  <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <i class="fas fa-envelope" style="min-width: 20px;"></i>
+      <strong>Email:</strong>
+      <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a>
     </div>
-  </section>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <i class="fab fa-twitter" style="min-width: 20px;"></i>
+      <strong>Twitter:</strong>
+      <a href="https://twitter.com/pilex3173" target="_blank">@pilex3173</a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <i class="fab fa-twitter" style="min-width: 20px;"></i>
+      <strong>Twitter Alt:</strong>
+      <a href="https://twitter.com/ardihandoyo" target="_blank">@ardihandoyo</a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <i class="fab fa-discord" style="min-width: 20px;"></i>
+      <strong>Discord:</strong>
+      <a href="https://discord.com/users/pilex3173" target="_blank">@pilex3173</a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <i class="fab fa-discord" style="min-width: 20px;"></i>
+      <strong>Discord Alt:</strong>
+      <a href="https://discord.com/users/rahmatardihandoyo" target="_blank">@rahmatardihandoyo</a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <i class="fab fa-github" style="min-width: 20px;"></i>
+      <strong>GitHub:</strong>
+      <a href="https://github.com/Pilex3173" target="_blank">@Pilex3173</a>
+    </div>
+  </div>
+</section>
+    
 </main>
 
 <footer>
