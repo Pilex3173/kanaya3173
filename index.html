@@ -23,7 +23,6 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 2px solid #4dd0e1;
-      position: relative;
     }
 
     .logo-wrapper {
@@ -47,7 +46,6 @@
     nav {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
     }
 
     nav a {
@@ -58,45 +56,6 @@
     }
 
     nav a:hover {
-      color: #ffffff;
-    }
-
-    /* Toggle button */
-    .toggle-btn {
-      font-size: 1.2rem;
-      background: none;
-      color: #80deea;
-      border: 1px solid #4dd0e1;
-      padding: 0.4rem 0.6rem;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-left: 1rem;
-    }
-
-    /* Submenu styles */
-    .menu-toggle {
-      position: absolute;
-      top: 100%;
-      right: 1.5rem;
-      background-color: #111122;
-      border: 1px solid #4dd0e1;
-      border-radius: 10px;
-      margin-top: 0.5rem;
-      display: none;
-      flex-direction: column;
-      min-width: 160px;
-      z-index: 10;
-    }
-
-    .menu-toggle a {
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid #4dd0e1;
-      color: #b2ebf2;
-      text-decoration: none;
-    }
-
-    .menu-toggle a:hover {
-      background-color: #1a1a2b;
       color: #ffffff;
     }
 
@@ -188,11 +147,6 @@
       nav a {
         margin: 0.4rem 0;
       }
-
-      .toggle-btn {
-        margin-left: 0;
-        margin-top: 0.5rem;
-      }
     }
   </style>
 </head>
@@ -209,18 +163,102 @@
       Swap
     </a>
     <a href="https://explore.pilex.web.id/" target="_blank">🔍 Explore</a>
-    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
-    <div class="menu-toggle" id="menuToggle">
-      <a href="tutorial1.html">Tutorial 1</a>
-      <a href="tutorial2.html">Tutorial 2</a>
-      <a href="tutorial3.html">Tutorial 3</a>
-    </div>
   </nav>
 </header>
 
 <main>
-  <!-- ... semua section tetap sama ... -->
-  <!-- Section Home, About, Status, Blog, Contact, dsb. -->
+  <section id="home">
+    <h2>Welcome to PILEX3173</h2>
+    <p class="tagline">We Trusted Validator for Decentralized Future</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>We are a validator active in many testnets and mainnets. Passionate about uptime, decentralization, and transparency.</p>
+  </section>
+
+  <section id="status">
+    <h2>Live Validator Status</h2>
+    <div class="status-grid">
+      <div class="validator-card" data-url="https://explore.pilex.web.id/lumera/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
+        <h3>Lumera</h3>
+        <p class="status-text">Checking...</p>
+      </div>
+      <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
+        <h3>Empe</h3>
+        <p class="status-text">Checking...</p>
+      </div>
+      <div class="validator-card" data-url="https://node.zenchain.io/#/staking">
+        <h3>Zenchain</h3>
+        <p class="status-text">Checking...</p>
+      </div>
+      <div class="validator-card" data-url="https://explore.pilex.web.id/xos/staking/cosmosvaloper1mycqyjwvpjpn9apf2qhv4kyqradpcqyt5r53kl">
+        <h3>XOS</h3>
+        <p class="status-text">Checking...</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="node-status">
+    <h2>Live Node Status</h2>
+    <div class="status-grid">
+      <div class="node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel">
+        <h3>Multiple</h3><p class="status-text">Checking...</p>
+      </div>
+      <div class="node-card" data-url="https://app.nodepay.ai/dashboard">
+        <h3>Nodepay</h3><p class="status-text">Checking...</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <p>
+      At <strong>PILEX3173</strong>, we take pride in our consistency. Our validator nodes have maintained excellent uptime across multiple networks and testnets.
+      We focus on reliability, security, and contributing to decentralized ecosystems.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fas fa-envelope" style="min-width: 20px;"></i>
+        <strong>Email:</strong>
+        <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fab fa-twitter" style="min-width: 20px;"></i>
+        <strong>Twitter:</strong>
+        <a href="https://twitter.com/pilex3173" target="_blank">@pilex3173</a>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fab fa-twitter" style="min-width: 20px;"></i>
+        <strong>Twitter Alt:</strong>
+        <a href="https://twitter.com/ardihandoyo" target="_blank">@ardihandoyo</a>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fab fa-discord" style="min-width: 20px;"></i>
+        <strong>Discord:</strong>
+        <a href="https://discord.com/users/pilex3173" target="_blank">@pilex3173</a>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fab fa-discord" style="min-width: 20px;"></i>
+        <strong>Discord Alt:</strong>
+        <a href="https://discord.com/users/rahmatardihandoyo" target="_blank">@rahmatardihandoyo</a>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fab fa-github" style="min-width: 20px;"></i>
+        <strong>GitHub:</strong>
+        <a href="https://github.com/Pilex3173" target="_blank">@Pilex3173</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -246,11 +284,6 @@
       window.open(url, "_blank");
     });
   });
-
-  function toggleMenu() {
-    const menu = document.getElementById('menuToggle');
-    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-  }
 </script>
 
 </body>
