@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -105,53 +104,43 @@
       gap: 1rem;
     }
 
+    /* === CARD STYLE - DARK GALAXY RECTANGLE === */
     .validator-card, .node-card {
-      border-radius: 16px;
-      padding: 1rem;
-      background: linear-gradient(135deg, #0d0d15, #1a1a2e, #0c0c1a);
-      border: 1px solid rgba(77, 208, 225, 0.1);
-      box-shadow:
-        0 0 10px rgba(0, 255, 255, 0.08),
-        inset 0 0 30px rgba(102, 255, 204, 0.05);
-      color: #b2ebf2;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      border-radius: 14px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      min-height: 80px;
+      aspect-ratio: 5 / 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      border: 2px solid rgba(102, 255, 204, 0.1);
+      box-shadow: 0 0 25px rgba(102, 255, 204, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
       cursor: pointer;
     }
 
-    .validator-card::before, .node-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 50% 50%, rgba(0,255,255,0.1), transparent 60%);
-      animation: auroraFlow 6s linear infinite;
-      z-index: 0;
-    }
-
     .validator-card:hover, .node-card:hover {
-      transform: translateY(-5px);
-      box-shadow:
-        0 0 20px rgba(0, 255, 255, 0.2),
-        0 0 40px rgba(0, 255, 255, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
     }
 
     .validator-card h3, .node-card h3 {
-      font-size: 1.05rem;
-      margin: 0.5rem 0;
-      z-index: 1;
+      margin: 0;
+      font-size: 1rem;
+      background: linear-gradient(270deg, #00ffff, #66ffcc, #9966ff, #00ffff);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: auroraMove 6s ease infinite;
+      text-shadow: 0 0 6px rgba(102, 255, 204, 0.3);
     }
 
     .status-text {
-      font-size: 0.9rem;
-      z-index: 1;
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+      color: #cfd8dc;
     }
 
     .status-online {
@@ -195,11 +184,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    @keyframes auroraFlow {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -216,95 +200,102 @@
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo-wrapper">
-      <img src="1000155552.jpg" alt="Logo">
-      <div class="logo anime-logo">PILEX3173</div>
+
+<header>
+  <div class="logo-wrapper">
+    <img src="1000155552.jpg" alt="Logo">
+    <div class="logo anime-logo">PILEX3173</div>
+  </div>
+  <nav>
+    <a href="https://swap.pilex.web.id/" target="_blank">
+      <img src="swap.png" alt="Swap" style="height: 18px; vertical-align: middle; margin-right: 6px;">
+    </a>
+    <a href="https://explore.pilex.web.id/" target="_blank">
+      <img src="explore.jpeg" alt="Explore" style="height: 18px; vertical-align: middle; margin-right: 6px;">
+    </a>
+  </nav>
+</header>
+
+<main>
+  <section id="home">
+    <h2>PILEX3173 Validator And Node Service</h2>
+    <p class="tagline">We Trusted Validator for Decentralized Future</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>We are a validator active in many testnets and mainnets, committed to maximum uptime, decentralization, and operational transparency. Our infrastructure is built for stability and scalability, enabling developers and protocols to grow with confidence. With a proven track record and strong community presence, we aim to be a reliable partner in your blockchain journey.</p>
+  </section>
+
+  <section id="status">
+    <h2>Live Validator Status</h2>
+    <div class="status-grid">
+      <div class="validator-card" data-url="https://explore.pilex.web.id/lumera/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w"><h3>Lumera</h3><p class="status-text">Checking...</p></div>
+      <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l"><h3>Empe</h3><p class="status-text">Checking...</p></div>
+      <div class="validator-card" data-url="https://node.zenchain.io/#/staking"><h3>Zenchain</h3><p class="status-text">Checking...</p></div>
+      <div class="validator-card" data-url="https://explore.pilex.web.id/xos/staking/cosmosvaloper1mycqyjwvpjpn9apf2qhv4kyqradpcqyt5r53kl"><h3>XOS</h3><p class="status-text">Checking...</p></div>
     </div>
-    <nav>
-      <a href="https://swap.pilex.web.id/" target="_blank"><img src="swap.png" alt="Swap" style="height: 18px; vertical-align: middle; margin-right: 6px;"></a>
-      <a href="https://explore.pilex.web.id/" target="_blank"><img src="explore.jpeg" alt="Explore" style="height: 18px; vertical-align: middle; margin-right: 6px;"></a>
-    </nav>
-  </header>
+  </section>
 
-  <main>
-    <section id="home">
-      <h2>PILEX3173 Validator And Node Service</h2>
-      <p class="tagline">We Trusted Validator for Decentralized Future</p>
-    </section>
+  <section id="node-status">
+    <h2>Live Node Status</h2>
+    <div class="status-grid">
+      <div class="node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel"><h3>Multiple</h3><p class="status-text">Checking...</p></div>
+      <div class="node-card" data-url="https://app.nodepay.ai/dashboard"><h3>Nodepay</h3><p class="status-text">Checking...</p></div>
+    </div>
+  </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>We are a validator active in many testnets and mainnets, committed to maximum uptime, decentralization, and operational transparency. Our infrastructure is built for stability and scalability, enabling developers and protocols to grow with confidence. With a proven track record and strong community presence, we aim to be a reliable partner in your blockchain journey.</p>
-    </section>
+  <section id="tutorials">
+    <h2>Tutorial Run Validator and Node</h2>
+    <div class="status-grid">
+      <div class="validator-card" onclick="location.href='Xos.html'"><h3>XOS Network</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial2.html'"><h3>Lumera</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial3.html'"><h3>Empe</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial4.html'"><h3>Zenchain</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial5.html'"><h3>Datagram</h3></div>
+      <div class="validator-card" onclick="location.href='tutorial6.html'"><h3>Blockcast</h3></div>
+    </div>
+  </section>
 
-    <section id="status">
-      <h2>Live Validator Status</h2>
-      <div class="status-grid">
-        <div class="validator-card" data-url="https://explore.pilex.web.id/lumera/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w"><h3>Lumera</h3><p class="status-text">Checking...</p></div>
-        <div class="validator-card" data-url="https://testnet.ping.pub/empe/staking/empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l"><h3>Empe</h3><p class="status-text">Checking...</p></div>
-        <div class="validator-card" data-url="https://node.zenchain.io/#/staking"><h3>Zenchain</h3><p class="status-text">Checking...</p></div>
-        <div class="validator-card" data-url="https://explore.pilex.web.id/xos/staking/cosmosvaloper1mycqyjwvpjpn9apf2qhv4kyqradpcqyt5r53kl"><h3>XOS</h3><p class="status-text">Checking...</p></div>
-      </div>
-    </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+      <div><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a></div>
+      <div><i class="fab fa-twitter"></i> <strong>Twitter:</strong> <a href="https://twitter.com/pilex3173">@pilex3173</a></div>
+      <div><i class="fab fa-twitter"></i> <strong>Twitter Alt:</strong> <a href="https://twitter.com/ardihandoyo">@ardihandoyo</a></div>
+      <div><i class="fab fa-discord"></i> <strong>Discord:</strong> <a href="https://discord.com/users/pilex3173">@pilex3173</a></div>
+      <div><i class="fab fa-discord"></i> <strong>Discord Alt:</strong> <a href="https://discord.com/users/rahmatardihandoyo">@rahmatardihandoyo</a></div>
+      <div><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Pilex3173">@Pilex3173</a></div>
+    </div>
+  </section>
+</main>
 
-    <section id="node-status">
-      <h2>Live Node Status</h2>
-      <div class="status-grid">
-        <div class="node-card" data-url="https://www.app.multiple.ultiple.cc/#/dataPanel"><h3>Multiple</h3><p class="status-text">Checking...</p></div>
-        <div class="node-card" data-url="https://app.nodepay.ai/dashboard"><h3>Nodepay</h3><p class="status-text">Checking...</p></div>
-      </div>
-    </section>
+<footer>
+  <p>© 2025 PILEX3173. Trusted Validator ⚙️</p>
+</footer>
 
-    <section id="tutorials">
-      <h2>Tutorial Run Validator and Node</h2>
-      <div class="status-grid">
-        <div class="validator-card" onclick="location.href='Xos.html'"><h3>XOS Network</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial2.html'"><h3>Lumera</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial3.html'"><h3>Empe</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial4.html'"><h3>Zenchain</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial5.html'"><h3>Datagram</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial6.html'"><h3>Blockcast</h3></div>
-      </div>
-    </section>
+<script>
+  document.querySelectorAll(".validator-card, .node-card").forEach((card) => {
+    const url = card.getAttribute("data-url");
+    const statusEl = card.querySelector(".status-text");
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-        <div><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a></div>
-        <div><i class="fab fa-twitter"></i> <strong>Twitter:</strong> <a href="https://twitter.com/pilex3173">@pilex3173</a></div>
-        <div><i class="fab fa-twitter"></i> <strong>Twitter Alt:</strong> <a href="https://twitter.com/ardihandoyo">@ardihandoyo</a></div>
-        <div><i class="fab fa-discord"></i> <strong>Discord:</strong> <a href="https://discord.com/users/pilex3173">@pilex3173</a></div>
-        <div><i class="fab fa-discord"></i> <strong>Discord Alt:</strong> <a href="https://discord.com/users/rahmatardihandoyo">@rahmatardihandoyo</a></div>
-        <div><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Pilex3173">@Pilex3173</a></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 PILEX3173. Trusted Validator ⚙️</p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".validator-card, .node-card").forEach((card) => {
-      const url = card.getAttribute("data-url");
-      const statusEl = card.querySelector(".status-text");
-
-      fetch(url, { method: "GET", mode: "no-cors" })
-        .then(() => {
-          statusEl.textContent = "🟢 Online";
-          statusEl.classList.add("status-online");
-        })
-        .catch(() => {
-          statusEl.textContent = "🔴 Offline";
-          statusEl.classList.add("status-offline");
-        });
-
-      card.addEventListener("click", () => {
-        window.open(url, "_blank");
+    fetch(url, { method: "GET", mode: "no-cors" })
+      .then(() => {
+        statusEl.textContent = "🟢 Online";
+        statusEl.classList.add("status-online");
+      })
+      .catch(() => {
+        statusEl.textContent = "🔴 Offline";
+        statusEl.classList.add("status-offline");
       });
+
+    card.addEventListener("click", () => {
+      window.open(url, "_blank");
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
