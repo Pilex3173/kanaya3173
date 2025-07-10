@@ -122,6 +122,7 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      text-align: center;
     }
 
     .validator-card::before, .node-card::before {
@@ -164,6 +165,12 @@
       font-weight: bold;
     }
 
+    /* Custom card links for tutorial */
+    a.validator-card {
+      text-decoration: none;
+      aspect-ratio: 5 / 1;
+    }
+
     #contact a {
       background: linear-gradient(270deg, #00ffff, #66ffcc, #9966ff, #00ffff);
       background-size: 600% 600%;
@@ -172,7 +179,7 @@
       animation: auroraMove 8s ease infinite;
       font-weight: bold;
       text-decoration: none;
-      text-shadow: 0 0 6px rgba(102, 255, 204, 0.5);
+      font-size: 1.5rem;
     }
 
     #contact a:hover {
@@ -236,7 +243,7 @@
 
     <section id="about">
       <h2>About Me</h2>
-      <p>We are a validator active in many testnets and mainnets, committed to maximum uptime, decentralization, and operational transparency. Our infrastructure is built for stability and scalability, enabling developers and protocols to grow with confidence. With a proven track record and strong community presence, we aim to be a reliable partner in your blockchain journey.</p>
+      <p>We are a validator active in many testnets and mainnets, committed to maximum uptime, decentralization, and operational transparency...</p>
     </section>
 
     <section id="status">
@@ -260,24 +267,24 @@
     <section id="tutorials">
       <h2>Tutorial Run Validator and Node</h2>
       <div class="status-grid">
-        <div class="validator-card" onclick="location.href='Xos.html'"><h3>XOS Network</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial2.html'"><h3>Lumera</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial3.html'"><h3>Empe</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial4.html'"><h3>Zenchain</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial5.html'"><h3>Datagram</h3></div>
-        <div class="validator-card" onclick="location.href='tutorial6.html'"><h3>Blockcast</h3></div>
+        <a class="validator-card" href="Xos.html"><h3>XOS Network</h3></a>
+        <a class="validator-card" href="tutorial2.html"><h3>Lumera</h3></a>
+        <a class="validator-card" href="tutorial3.html"><h3>Empe</h3></a>
+        <a class="validator-card" href="tutorial4.html"><h3>Zenchain</h3></a>
+        <a class="validator-card" href="tutorial5.html"><h3>Datagram</h3></a>
+        <a class="validator-card" href="tutorial6.html"><h3>Blockcast</h3></a>
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-        <div><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:pilex3173@pilex.we.id">pilex3173@pilex.we.id</a></div>
-        <div><i class="fab fa-twitter"></i> <strong>Twitter:</strong> <a href="https://twitter.com/pilex3173">@pilex3173</a></div>
-        <div><i class="fab fa-twitter"></i> <strong>Twitter Alt:</strong> <a href="https://twitter.com/ardihandoyo">@ardihandoyo</a></div>
-        <div><i class="fab fa-discord"></i> <strong>Discord:</strong> <a href="https://discord.com/users/pilex3173">@pilex3173</a></div>
-        <div><i class="fab fa-discord"></i> <strong>Discord Alt:</strong> <a href="https://discord.com/users/rahmatardihandoyo">@rahmatardihandoyo</a></div>
-        <div><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Pilex3173">@Pilex3173</a></div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+        <a href="mailto:pilex3173@pilex.we.id" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://twitter.com/pilex3173" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://twitter.com/ardihandoyo" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.com/users/pilex3173" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://discord.com/users/rahmatardihandoyo" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://github.com/Pilex3173" target="_blank"><i class="fab fa-github"></i></a>
       </div>
     </section>
   </main>
@@ -290,6 +297,7 @@
     document.querySelectorAll(".validator-card, .node-card").forEach((card) => {
       const url = card.getAttribute("data-url");
       const statusEl = card.querySelector(".status-text");
+      if (!url || !statusEl) return;
 
       fetch(url, { method: "GET", mode: "no-cors" })
         .then(() => {
@@ -302,7 +310,7 @@
         });
 
       card.addEventListener("click", () => {
-        window.open(url, "_blank");
+        if (url) window.open(url, "_blank");
       });
     });
   </script>
