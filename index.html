@@ -11,7 +11,9 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #ffffff;
+      background: url('watermark_pudar.png') center center repeat;
+      background-size: contain;
+      background-attachment: fixed;
       color: #111111;
       font-size: 0.875rem;
     }
@@ -48,7 +50,7 @@
     }
 
     section {
-      background-color: #fafafa;
+      background-color: rgba(255, 255, 255, 0.85);
       border-radius: 12px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
@@ -123,8 +125,6 @@
       justify-content: center;
       gap: 2rem;
       padding: 1.5rem;
-      border: 2px dashed #000000;
-      background-color: #fdfdfd;
       margin-top: 1.5rem;
       border-radius: 10px;
     }
@@ -132,12 +132,17 @@
     #menu-links a {
       font-size: 1.25rem;
       font-weight: bold;
-      color: #111111;
+      color: #ffffff;
+      background-color: #000000;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
       text-decoration: none;
+      border: 2px solid #000000;
+      transition: 0.3s ease;
     }
 
     #menu-links a:hover {
-      text-decoration: underline;
+      background-color: #333333;
     }
 
     #contact a {
@@ -193,7 +198,7 @@
     </section>
 
     <div id="menu-links">
-      <a href="https://zenswap-brige.pilex.web.id//" target="_blank">SWAP</a>
+      <a href="https://zenswap-brige.pilex.web.id/" target="_blank">SWAP</a>
       <a href="https://explore.pilex.web.id/" target="_blank">EXPLORER</a>
     </div>
 
