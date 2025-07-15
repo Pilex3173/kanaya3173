@@ -7,33 +7,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #111111;
-      font-size: 0.875rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 600px;
-      height: 600px;
-      background-image: url('watermark_pudar.png');
+      background: url('watermark_pudar.png') center center fixed;
       background-size: contain;
       background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0.06;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      pointer-events: none;
+      background-color: #ffffff;
+      color: #111111;
+      font-size: 0.875rem;
     }
 
     header {
@@ -43,8 +26,6 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 2px solid #cccccc;
-      position: relative;
-      z-index: 2;
     }
 
     .logo-wrapper {
@@ -67,12 +48,10 @@
 
     main {
       padding: 1.5rem;
-      position: relative;
-      z-index: 2;
     }
 
     section {
-      background-color: #fafafa;
+      background-color: rgba(250, 250, 250, 0.9);
       border-radius: 12px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
@@ -139,7 +118,6 @@
 
     a.validator-card {
       text-decoration: none;
-      aspect-ratio: 5 / 1;
     }
 
     #menu-links {
@@ -151,24 +129,22 @@
       background-color: #fdfdfd;
       margin-top: 1.5rem;
       border-radius: 10px;
-      flex-wrap: wrap;
+      text-align: center;
     }
 
     #menu-links a {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #111111;
       text-decoration: none;
-      padding: 1rem 2rem;
-      border: 2px dashed #000000;
-      border-radius: 12px;
+      border: 2px dashed #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
       background-color: #ffffff;
-      transition: 0.3s ease;
     }
 
     #menu-links a:hover {
-      text-decoration: underline;
-      background-color: #f2f2f2;
+      background-color: #f0f0f0;
     }
 
     #contact a {
@@ -189,8 +165,6 @@
       color: #333333;
       font-size: 0.85rem;
       border-top: 2px dashed #000000;
-      position: relative;
-      z-index: 2;
     }
 
     @media (max-width: 600px) {
@@ -206,11 +180,10 @@
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="logo-wrapper">
-      <img src="1000155552.jpg" alt="Logo">
+      <img src="1000158572.jpg" alt="Logo">
       <div class="logo anime-logo">PILEX3173</div>
     </div>
   </header>
