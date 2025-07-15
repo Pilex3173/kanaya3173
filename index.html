@@ -11,9 +11,8 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: url('watermark_pudar.png') center center fixed;
-      background-repeat: repeat;
-      background-size: 300px;
+      background: #ffffff url('watermark_pudar.png') no-repeat center center fixed;
+      background-size: contain;
       color: #111111;
       font-size: 0.875rem;
     }
@@ -50,7 +49,7 @@
     }
 
     section {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: #fafafa;
       border-radius: 12px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
@@ -73,12 +72,12 @@
     .status-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
 
     .validator-card, .node-card {
       border-radius: 16px;
-      padding: 2rem;
+      padding: 1.5rem;
       background: #ffffff;
       border: 2px dashed #000000;
       color: #111111;
@@ -89,7 +88,7 @@
       transition: transform 0.3s ease;
       cursor: pointer;
       text-align: center;
-      min-height: 120px;
+      min-height: 160px;
     }
 
     .validator-card:hover, .node-card:hover {
@@ -98,12 +97,12 @@
     }
 
     .validator-card h3, .node-card h3 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin: 0.5rem 0;
     }
 
     .status-text {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     .status-online {
@@ -124,25 +123,23 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-      border-radius: 10px;
+      margin: 2rem 0;
     }
 
-    #menu-links a {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: #ffffff;
+    .menu-box {
       background-color: #000000;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1.4rem;
+      font-weight: bold;
       text-decoration: none;
       border: 2px solid #000000;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    #menu-links a:hover {
-      background-color: #333333;
+    .menu-box:hover {
+      background-color: #222;
     }
 
     #contact a {
@@ -198,8 +195,8 @@
     </section>
 
     <div id="menu-links">
-      <a href="https://zenswap-brige.pilex.web.id/" target="_blank">SWAP</a>
-      <a href="https://explore.pilex.web.id/" target="_blank">EXPLORER</a>
+      <a href="https://zenswap-brige.pilex.web.id/" target="_blank" class="menu-box">SWAP</a>
+      <a href="https://explore.pilex.web.id/" target="_blank" class="menu-box">EXPLORER</a>
     </div>
 
     <section id="status">
