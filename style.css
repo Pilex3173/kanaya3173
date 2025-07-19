@@ -123,8 +123,12 @@ body::after {
   color: #5865F2; /* Discord Blue */
   }
 .chain-logo {
-  width: 32px; /* atau 32px, sesuai keinginan */
-  height: auto;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px; /* agar logo terpusat dan ada jarak ke bawah */
 }
+
 
 
