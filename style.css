@@ -123,8 +123,8 @@ body::after {
   color: #5865F2; /* Discord Blue */
   }
 .chain-logo {
-  width: 40px;
-  height: 40px;
+  width: 10px;
+  height: 10px;
   object-fit: contain;
   border-radius: 50%;
   background-color: white;
