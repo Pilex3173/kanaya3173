@@ -1,134 +1,134 @@
-
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  border: 10px solid #fff8dc; /* putih keemasan (cornsilk) */
-  
-  position: relative;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  border: 10px solid #fff8dc; /* putih keemasan (cornsilk) */
+  position: relative;
 }
+
 .layout {
-  display: flex;
-  min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
 }
+
 .sidebar {
-  width: 220px;
-  background-color: #2c3e50;
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease-in-out;
+  width: 220px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
 }
+
 .sidebar.hidden {
-  transform: translateX(-100%);
+  transform: translateX(-100%);
 }
+
 .sidebar-toggle {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: transparent;
-  color: #e74c3c;
-  border: 2px solid #e74c3c;
-  padding: 10px 15px;
-  cursor: pointer;
-  z-index: 10000;
-  border-radius: 8px;
-  font-weight: bold;
-  backdrop-filter: blur(4px);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: transparent;
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10000;
+  border-radius: 8px;
+  font-weight: bold;
+  backdrop-filter: blur(4px);
 }
+
 .sidebar img.profile {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 40px auto 20px auto;
-  display: block;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 40px auto 20px auto;
+  display: block;
 }
+
 .sidebar h2 {
-  margin-top: 0;
+  margin-top: 0;
 }
+
 .sidebar nav a {
-  display: block;
-  color: #3498db;
-  text-decoration: none;
-  margin: 10px 0;
+  display: block;
+  color: #3498db;
+  text-decoration: none;
+  margin: 10px 0;
 }
+
 .sidebar .submenu {
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-left: 10px;
+  margin-top: 5px;
 }
+
 .sidebar .submenu a {
-  font-size: 0.9em;
-  color: #85c1e9;
-  margin-left: 10px;
-  display: block;
-  text-decoration: none;
+  font-size: 0.9em;
+  color: #ccc;
+  margin-left: 10px;
+  display: block;
+  text-decoration: none;
 }
+
 .sidebar .submenu a:hover {
-  text-decoration: underline;
+  text-decoration: underline;
 }
+
 .main-content {
-  flex-grow: 1;
-  padding: 20px;
-  background-color: #7e57c2
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #7e57c2;
 }
+
 footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #888;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #888;
 }
+
 body::after {
-  content: "© PILEX3173";
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  content: "© PILEX3173";
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.2);
+  z-index: 9999;
 }
+
 .status-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
+
 .validator-card {
-  background-color: #ffffff;
-  border: 2px solid #3498db;
-  border-radius: 10px;
-  padding: 15px;
-  width: 250px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 }
-.sidebar .submenu {
-  margin-left: 10px;
-  margin-top: 5px;
-}
-.sidebar .submenu a {
-  font-size: 0.9em;
-  color: #ccc;
-  margin-left: 10px;
-  display: block;
-  text-decoration: none;
-}
-.sidebar .submenu a:hover {
-  text-decoration: underline;
-}
+
+/* Kontak Section */
 #contact p {
-  margin: 0.5em 0;
-  font-size: 1.1em;
+  margin: 0.5em 0;
+  font-size: 1.1em;
 }
 
 #contact i {
-  margin-right: 8px;
-  color: #5865F2; /* Discord Blue */
-  }
+  margin-right: 8px;
+  color: #5865F2; /* Discord Blue */
+}
+
+/* Logo Chain (Lumera, Empe, dst) */
 .chain-logo {
   width: 32px;
   height: 32px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 8px; /* agar logo terpusat dan ada jarak ke bawah */
+  margin: 0 auto 8px; /* Terpusat & ada jarak bawah */
 }
-
-
-
