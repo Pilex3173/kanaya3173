@@ -214,7 +214,9 @@
     <button onclick="showPanel('mainnet')" class="tab-button">Mainnet</button>
       </div>
       <h2>Live Validator Testnet Status</h2>.  <h2>Live Validator Mainnet Status</h2>
-      <div class="status-grid">
+      <div id="panel-testnet" class="status-panel">
+    <h3>Live Validator Testnet Status</h3>
+    <div class="status-grid">
         <div class="validator-card" data-url="https://explorer.maouam.nodelab.my.id/lumera-testnet/staking/lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
           <img src="assets/lumera.png" alt="Lumera Logo" class="chain-logo" />
           <h3>Lumera</h3>
@@ -237,6 +239,12 @@
         </div>
       </div>
     </section>
+    div id="panel-mainnet" class="status-panel" style="display:none;">
+    <h3>Live Validator Mainnet Status</h3>
+    <div class="status-grid">
+      </div>
+  </div>
+  </section>
 
     <section id="node-status">
       <h2>Live Node Testnet Status</h2>
