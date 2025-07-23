@@ -131,4 +131,16 @@ body::after {
   object-fit: contain;
   display: block;
   margin: 0 auto 8px; /* Terpusat & ada jarak bawah */
+
+  
+}
+.yellow-bg {
+  background-color: #fff9c4;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.validator-card.dashed {
+  border: 2px dashed #f39c12;
+  background-color: #fffde7;
 }
