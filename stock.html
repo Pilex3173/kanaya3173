@@ -2,16 +2,39 @@
 <html>
 <head>
   <title>Stok LPG</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <h1>Stok Pangkalan LPG</h1>
   <pre id="data">Memuat data...</pre>
 
   <script>
-    fetch("https://drive.google.com/uc?id=1RqXmh4FtXI0JPdWo3pUU7NzvhcOESZV4&export=download")
-      .then(response => response.json())
+    // Ganti dengan FILE ID Google Drive kamu
+    const FILE_ID = '1RqXmh4FtXI0JPdWo3pUU7NzvhcOESZV4';
+
+    // URL untuk fetch file JSON dari Google Drive
+    const URL = `https://drive.google.com/uc?export=download&id=${FILE_ID}`;
+
+    fetch(URL)
+      .then(response => {
+        if (!response.ok) throw new Error("Gagal memuat data.");
+        return response.json();
+      })
       .then(data => {
         document.getElementById("data").textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById("data").textContent = "❌ Gagal memuat data: " + error;
       });
   </script>
 </body>
