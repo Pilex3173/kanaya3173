@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Service Gnoland — Example</title>
+
+  <!-- Optional: Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #0f172a;
+      --accent: #0f172a;
+      --brand: #0b67ff;
+      --radius: 12px;
+      --shadow: 0 6px 20px rgba(17,24,39,0.06);
+      --max-width: 1100px;
+    }
+
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.35;
+    }
+
+    /* top bar */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      max-width: var(--max-width);
+      margin:0 auto;
+    }
+    .brand-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand-left .mini-logo{
+      width:36px;
+      height:36px;
+      border-radius:8px;
+      background:linear-gradient(135deg,#ffd7a8,#b3e5ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#111827;
+      box-shadow: 0 2px 8px rgba(2,6,23,0.08);
+    }
+    .top-links{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* main hero */
+    .hero{
+      max-width: var(--max-width);
+      margin: 18px auto 40px;
+      padding: 24px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:18px;
+    }
+
+    .hero .logo{
+      width:96px;
+      height:96px;
+      border-radius:12px;
+      background:#0b1220;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-weight:700;
+      box-shadow: var(--shadow);
+      font-size:32px;
+    }
+    .hero h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:-0.02em;
+      font-weight:700;
+      color:var(--text);
+    }
+    .hero .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 20px;
+      border-radius:28px;
+      background:transparent;
+      border:1px solid #e6eef7;
+      box-shadow: 0 8px 18px rgba(11, 103, 255, 0.06);
+      cursor:pointer;
+      transition: all 180ms ease;
+      font-weight:600;
+    }
+    .hero .cta:hover{
+      transform:translateY(-3px);
+      box-shadow: 0 14px 30px rgba(11, 103, 255, 0.08);
+    }
+
+    /* network info */
+    .net-info{
+      display:flex;
+      gap:28px;
+      flex-direction:column;
+      align-items:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .net-info .row{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .net-info .label{font-weight:600; color:var(--text);}
+
+    /* cards grid */
+    .cards-wrap{
+      max-width: var(--max-width);
+      margin: 28px auto 60px;
+      padding: 0 18px;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:18px;
+    }
+    .card{
+      background: var(--card);
+      padding:20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      font-weight:600;
+      color:var(--text);
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(2,6,23,0.08);
+    }
+
+    /* single wide card row for Explorer on mobile view */
+    .cards .full{
+      grid-column: 1 / -1;
+    }
+
+    /* footer */
+    footer{
+      background: transparent;
+      margin-top:40px;
+      padding:40px 18px;
+    }
+    .footer-inner{
+      max-width: var(--max-width);
+      margin:0 auto;
+      display:flex;
+      gap:28px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      color:var(--muted);
+    }
+    .footer-left{
+      min-width:220px;
+    }
+    .footer-links{
+      display:flex;
+      gap:40px;
+      flex-wrap:wrap;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .footer-col{ min-width:120px }
+    .footer-small{
+      margin-top:22px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* small screens */
+    @media (max-width:820px){
+      .topbar{padding:12px}
+      .hero h1{font-size:22px}
+      .cards{grid-template-columns: 1fr; gap:12px}
+      .cards .full{grid-column:auto}
+      .net-info{gap:8px}
+      .footer-inner{flex-direction:column; align-items:flex-start}
+    }
+
+    /* center vertical page if little content */
+    .page{
+      min-height: calc(100vh - 120px);
+      display:flex;
+      flex-direction:column;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar" role="banner">
+      <div class="brand-left">
+        <div class="mini-logo" aria-hidden="true">V</div>
+        <div style="font-weight:600;color:var(--text)">Vinjan</div>
+      </div>
+
+      <nav class="top-links" aria-label="Top navigation">
+        <a href="#" style="text-decoration:none;color:inherit;display:flex;gap:8px;align-items:center">
+          <!-- simple explorer icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.9"><path d="M3 12h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Explorer
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="service-title">
+        <div class="logo" aria-hidden="true">🧙</div>
+        <h1 id="service-title">Service Gnoland</h1>
+
+        <button class="cta" onclick="handleStake()">Stake with us</button>
+
+        <div class="net-info" aria-live="polite">
+          <div class="row"><span class="label">Network Type:</span> <span>Testnet</span></div>
+          <div class="row"><span class="label">Chain-id:</span> <span>test7.2</span></div>
+          <div class="row"><span class="label">Node version:</span> <span>—</span></div>
+        </div>
+      </section>
+
+      <section class="cards-wrap" aria-label="Quick links">
+        <div class="cards">
+          <a class="card" href="#" role="link">Genesis file</a>
+          <a class="card" href="#" role="link">Node installation</a>
+          <a class="card" href="#" role="link">CLI Cheatsheet</a>
+          <a class="card" href="#" role="link">Peers</a>
+          <a class="card full" href="#" role="link">Explorer</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner" role="contentinfo">
+        <div class="footer-left">
+          <div style="font-weight:700;color:var(--text)">Vinjan</div>
+          <div class="footer-small">Terms · Privacy Policy</div>
+
+          <div class="footer-small" style="margin-top:12px">Made by <a href="#" style="color:var(--brand);text-decoration:none;font-weight:600">Vinjan</a> · All rights reserved.</div>
+        </div>
+
+        <div style="display:flex;gap:32px;flex-wrap:wrap">
+          <div class="footer-col">
+            <div style="font-weight:700;color:var(--text);margin-bottom:8px">Explorer</div>
+            <div style="color:var(--muted);font-size:14px">Mainnet<br/>Testnet Labs<br/>IBC Relayer</div>
+          </div>
+
+          <div class="footer-col">
+            <div style="font-weight:700;color:var(--text);margin-bottom:8px">About</div>
+            <div style="color:var(--muted);font-size:14px">About Us<br/>Sitemap</div>
+          </div>
+
+          <div class="footer-col">
+            <div style="font-weight:700;color:var(--text);margin-bottom:8px">Contact</div>
+            <div style="color:var(--muted);font-size:14px">Twitter · GitHub · Email</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function handleStake(){
+      // placeholder action: open a modal or navigate to staking page
+      alert('Open staking page (placeholder)');
+    }
+
+    // Optional: make each card clickable and navigable in a11y-friendly way
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
