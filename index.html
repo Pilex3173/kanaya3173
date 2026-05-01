@@ -7,119 +7,155 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #fff;
+  background: #ffffff url('watermark_pudar.png') no-repeat center center fixed;
+  background-size: contain;
 }
 
 header {
-  background: #f0f0f0;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
+  background:#f0f0f0;
+  padding:1rem;
+  display:flex;
+  justify-content:space-between;
+}
+
+.logo-wrapper { display:flex; gap:8px; align-items:center; }
+.logo-wrapper img { width:28px; border-radius:50%; }
+
+.pactus-link { display:flex; gap:6px; align-items:center; text-decoration:none; color:#000; font-size:0.8rem; }
+.pactus-link img { width:22px; }
+
+section {
+  background:#fff8dc;
+  padding:1.5rem;
+  margin:1.5rem;
+  border-radius:12px;
+  border:2px dashed #000;
 }
 
 .status-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 1rem;
-  padding: 1rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1rem;
 }
 
-.validator-card {
-  border: 2px dashed #000;
-  padding: 1rem;
-  border-radius: 10px;
-  background: #fff8dc;
+.validator-card, .node-card {
+  background:#fff;
+  border:2px dashed #000;
+  border-radius:12px;
+  padding:1rem;
+  text-align:center;
+  cursor:pointer;
 }
 
-.chain-logo {
-  width: 30px;
+.chain-logo { width:32px; margin-bottom:6px; }
+
+.status-online { color:green; font-weight:bold; }
+.status-offline { color:red; font-weight:bold; }
+
+.menu-box {
+  background:black;
+  color:white;
+  padding:10px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-.status-online { color: green; }
-.status-offline { color: red; }
+footer {
+  text-align:center;
+  padding:1rem;
+  background:#f0f0f0;
+  border-top:2px dashed #000;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h3>PILEX3173 Dashboard</h3>
-  <a href="https://pactus.org/" target="_blank">Pactus</a>
+  <div class="logo-wrapper">
+    <img src="logo.jpg">
+    <div class="logo anime-logo">PILEX3173</div>
+  </div>
+
+  <a href="https://pactus.org/" target="_blank" class="pactus-link">
+    <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
+    <span>Pactus</span>
+  </a>
 </header>
+
+<main>
+
+<section>
+<h2>Live Validator Status (Real-Time)</h2>
 
 <div class="status-grid">
 
-<!-- LUMEN MAINNET -->
-<div class="validator-card"
-data-rpc="https://rpc.lumen.network"
-data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
-
-<h4>Lumen Mainnet</h4>
+<!-- LUMEN -->
+<div class="validator-card" data-rpc="https://rpc.lumen.network" data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
+<h3>Lumen Mainnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
-
 </div>
 
 <!-- EMPE -->
-<div class="validator-card"
-data-rpc="https://rpc.empe.network"
-data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
-
-<h4>Empe Testnet</h4>
+<div class="validator-card" data-rpc="https://rpc.empe.network" data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
+<h3>Empe Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
-
 </div>
 
 <!-- LUMERA -->
-<div class="validator-card"
-data-rpc="https://rpc.lumera.io"
-data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
-
-<h4>Lumera Testnet</h4>
+<div class="validator-card" data-rpc="https://rpc.lumera.io" data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
+<h3>Lumera Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
-
 </div>
 
-<!-- PUSHCHAIN -->
-<div class="validator-card"
-data-rpc="https://rpc.pushchain.xyz"
-data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
-
-<h4>Pushchain Testnet</h4>
+<!-- PUSH -->
+<div class="validator-card" data-rpc="https://rpc.pushchain.xyz" data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
+<h3>Pushchain Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
-
 </div>
 
 <!-- SAFRO -->
-<div class="validator-card"
-data-rpc="https://rpc.safrochain.io"
-data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
-
-<h4>Safrochain Testnet</h4>
+<div class="validator-card" data-rpc="https://rpc.safrochain.io" data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
+<h3>Safrochain Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
-
 </div>
 
 </div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2025 PILEX3173</p>
+<div style="margin-top:8px;">
+<a href="https://pactus.org/" target="_blank" class="pactus-link">
+<img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
+<span>Powered by Pactus</span>
+</a>
+</div>
+</footer>
 
 <script>
 async function fetchDashboard(rpc, valoper, card) {
