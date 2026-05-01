@@ -44,28 +44,16 @@ section {
   gap:1rem;
 }
 
-.validator-card, .node-card {
+.validator-card {
   background:#fff;
   border:2px dashed #000;
   border-radius:12px;
   padding:1rem;
   text-align:center;
-  cursor:pointer;
 }
-
-.chain-logo { width:32px; margin-bottom:6px; }
 
 .status-online { color:green; font-weight:bold; }
 .status-offline { color:red; font-weight:bold; }
-
-.menu-box {
-  background:black;
-  color:white;
-  padding:10px 20px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
 
 footer {
   text-align:center;
@@ -99,7 +87,7 @@ footer {
 
 <!-- LUMEN -->
 <div class="validator-card"
-data-rpcs="https://rpc.lumen.network"
+data-rpcs="https://rpc.lumen.network,https://rpc.lumen.nodestake.org"
 data-rest="https://lumen-api.node9x.com"
 data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
 <h3>Lumen Mainnet</h3>
@@ -114,6 +102,7 @@ data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
 <!-- EMPE -->
 <div class="validator-card"
 data-rpcs="https://empeiria-rpc.itrocket.net"
+data-rest=""
 data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
 <h3>Empe Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
@@ -127,6 +116,7 @@ data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
 <!-- LUMERA -->
 <div class="validator-card"
 data-rpcs="https://rpc.lumera.io,https://lumera-rpc.kjnodes.com"
+data-rest=""
 data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
 <h3>Lumera Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
@@ -139,7 +129,7 @@ data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
 
 <!-- PUSH -->
 <div class="validator-card"
-data-rpcs="https://rpc-t.pushchain.xyz"
+data-rpcs="https://rpc-t.pushchain.xyz,https://pushchain-testnet-rpc.nodes.guru"
 data-rest="https://api-t.pushchain.nodestake.org"
 data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
 <h3>Pushchain Testnet</h3>
@@ -172,26 +162,17 @@ data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
 
 <footer>
 <p>© 2025 PILEX3173</p>
-<div style="margin-top:8px;">
-<a href="https://pactus.org/" target="_blank" class="pactus-link">
-<img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
-<span>Powered by Pactus</span>
-</a>
-</div>
 </footer>
 
 <script>
 async function testRPC(rpc) {
   const start = performance.now();
-
   try {
     const res = await fetch(rpc + "/status");
     const data = await res.json();
-    const latency = Math.round(performance.now() - start);
-
     return {
       rpc,
-      latency,
+      latency: Math.round(performance.now() - start),
       healthy: true,
       synced: !data.result.sync_info.catching_up
     };
@@ -201,11 +182,9 @@ async function testRPC(rpc) {
 }
 
 function scoreRPC(r) {
-  let score = 0;
-  if (r.healthy) score += 50;
-  if (r.synced) score += 30;
-  score += Math.max(0, 20 - r.latency / 50);
-  return score;
+  return (r.healthy ? 50 : 0) +
+         (r.synced ? 30 : 0) +
+         Math.max(0, 20 - r.latency / 50);
 }
 
 async function selectBestRPC(rpcs) {
@@ -239,19 +218,20 @@ async function fetchDashboard(rpcData, valoper, card) {
 
     const rest = card.getAttribute("data-rest");
 
-const valRes = await fetch(
-  rest + "/cosmos/staking/v1beta1/validators/" + valoper
-);
+    if (rest) {
+      const valRes = await fetch(rest + "/cosmos/staking/v1beta1/validators/" + valoper);
+      const valData = await valRes.json();
 
-const valData = await valRes.json();
-votingEl.textContent = valData.validator?.tokens || "N/A";
-    const valData = await valRes.json();
-
-    const val = valData.result.validators.find(v => v.operator_address === valoper);
-    votingEl.textContent = val ? val.voting_power : "N/A";
+      votingEl.textContent =
+        valData?.validator?.tokens
+          ? Number(valData.validator.tokens).toLocaleString()
+          : "N/A";
+    } else {
+      votingEl.textContent = "N/A";
+    }
 
   } catch {
-    statusEl.textContent = "🔴 Error";
+    statusEl.textContent = "🔴 Offline";
     statusEl.className = "status-text status-offline";
   }
 }
