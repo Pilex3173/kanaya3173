@@ -1,211 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PILEX3173 | Validator</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PILEX3173 | Validator</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #ffffff url('watermark_pudar.png') no-repeat center center fixed;
-      background-size: contain;
-      color: #111111;
-      font-size: 0.875rem;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+}
 
-    header {
-      background-color: #f0f0f0;
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px solid #cccccc;
-    }
+header {
+  background: #f0f0f0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
 
-    .logo-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
 
-    .logo-wrapper img {
-      height: 28px;
-      width: 28px;
-      border-radius: 50%;
-    }
+.validator-card {
+  border: 2px dashed #000;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #fff8dc;
+}
 
-    .logo.anime-logo {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1rem;
-    }
+.chain-logo {
+  width: 30px;
+}
 
-    /* PACTUS */
-    .pactus-link {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      color: #000;
-      font-size: 0.8rem;
-    }
-
-    .pactus-link img {
-      width: 22px;
-      height: 22px;
-    }
-
-    main { padding: 1.5rem; }
-
-    section {
-      background-color: #fff8dc;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border: 2px dashed #000000;
-    }
-
-    section h2 {
-      font-size: 1.3rem;
-      border-bottom: 1px dashed #000;
-      padding-bottom: 0.4rem;
-    }
-
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .validator-card, .node-card {
-      border-radius: 16px;
-      padding: 1.5rem;
-      background: #fff;
-      border: 2px dashed #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .status-online { color: green; font-weight: bold; }
-    .status-offline { color: red; font-weight: bold; }
-
-    .chain-logo {
-      width: 32px;
-      margin-bottom: 8px;
-    }
-
-    #menu-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .menu-box {
-      background: black;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #f0f0f0;
-      border-top: 2px dashed #000;
-    }
-  </style>
+.status-online { color: green; }
+.status-offline { color: red; }
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo-wrapper">
-    <img src="logo.jpg">
-    <div class="logo anime-logo">PILEX3173</div>
-  </div>
-
-  <!-- PACTUS -->
-  <a href="https://pactus.org/" target="_blank" class="pactus-link">
-    <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
-    <span>Pactus</span>
-  </a>
+  <h3>PILEX3173 Dashboard</h3>
+  <a href="https://pactus.org/" target="_blank">Pactus</a>
 </header>
 
-<main>
+<div class="status-grid">
 
-<section id="home">
-  <h2>PILEX3173 Validator And Node Service</h2>
-  <p>We Trusted Validator for Decentralized Future</p>
-</section>
+<!-- LUMEN MAINNET -->
+<div class="validator-card"
+data-rpc="https://rpc.lumen.network"
+data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>We are a validator active in many testnets and mainnets...</p>
-</section>
+<h4>Lumen Mainnet</h4>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
 
-<div id="menu-links">
-  <a href="https://zenswap-brige.pilex.xyz/" target="_blank" class="menu-box">SWAP</a>
-  <a href="https://explore.pilex.xyz/" target="_blank" class="menu-box">EXPLORER</a>
 </div>
 
-<section>
-  <h2>Live Validator Testnet Status</h2>
-  <div class="status-grid">
-    <!-- semua card kamu tetap -->
-  </div>
-</section>
+<!-- EMPE -->
+<div class="validator-card"
+data-rpc="https://rpc.empe.network"
+data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
 
-<section>
-  <h2>Live Validator Mainnet Status</h2>
-  <div class="status-grid">
-    <!-- coming soon tetap -->
-  </div>
-</section>
+<h4>Empe Testnet</h4>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
 
-<section id="node-status">
-  <h2>Live Node Testnet Status</h2>
-  <div class="status-grid">
-    <!-- node kamu tetap -->
-  </div>
-</section>
+</div>
 
-<section id="tutorials">
-  <h2>Tutorial Run Validator and Node</h2>
-  <div class="status-grid">
-    <!-- semua tutorial kamu tetap -->
-  </div>
-</section>
+<!-- LUMERA -->
+<div class="validator-card"
+data-rpc="https://rpc.lumera.io"
+data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div>
-    <!-- semua link tetap -->
-  </div>
-</section>
+<h4>Lumera Testnet</h4>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
 
-</main>
+</div>
 
-<footer>
-  <p>© 2025 PILEX3173. Trusted Validator ⚙️</p>
+<!-- PUSHCHAIN -->
+<div class="validator-card"
+data-rpc="https://rpc.pushchain.xyz"
+data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
 
-  <div style="margin-top:8px;">
-    <a href="https://pactus.org/" target="_blank" class="pactus-link">
-      <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
-      <span>Powered by Pactus Network</span>
-    </a>
-  </div>
-</footer>
+<h4>Pushchain Testnet</h4>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
+
+</div>
+
+<!-- SAFRO -->
+<div class="validator-card"
+data-rpc="https://rpc.safrochain.io"
+data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
+
+<h4>Safrochain Testnet</h4>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
+
+</div>
+
+</div>
+
+<script>
+async function fetchDashboard(rpc, valoper, card) {
+  const statusEl = card.querySelector(".status-text");
+  const blockEl = card.querySelector(".block-height");
+  const syncEl = card.querySelector(".sync-status");
+  const votingEl = card.querySelector(".voting-power");
+
+  try {
+    const res = await fetch(rpc + "/status");
+    const data = await res.json();
+
+    blockEl.textContent = data.result.sync_info.latest_block_height;
+    syncEl.textContent = data.result.sync_info.catching_up ? "Syncing" : "Synced";
+
+    statusEl.textContent = "🟢 Online";
+    statusEl.className = "status-text status-online";
+
+    const valRes = await fetch(rpc + "/validators?per_page=200");
+    const valData = await valRes.json();
+
+    const val = valData.result.validators.find(v => v.operator_address === valoper);
+    votingEl.textContent = val ? val.voting_power : "N/A";
+
+  } catch {
+    statusEl.textContent = "🔴 Offline";
+    statusEl.className = "status-text status-offline";
+  }
+}
+
+document.querySelectorAll(".validator-card").forEach(card => {
+  const rpc = card.getAttribute("data-rpc");
+  const valoper = card.getAttribute("data-validator");
+
+  fetchDashboard(rpc, valoper, card);
+  setInterval(() => fetchDashboard(rpc, valoper, card), 10000);
+});
+</script>
 
 </body>
 </html>
