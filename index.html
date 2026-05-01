@@ -93,53 +93,73 @@ footer {
 <main>
 
 <section>
-<h2>Live Validator Status (Real-Time)</h2>
+<h2>Live Validator Status (Smart RPC)</h2>
 
 <div class="status-grid">
 
 <!-- LUMEN -->
-<div class="validator-card" data-rpc="https://lumen-api.node9x.com/" data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
+<div class="validator-card"
+data-rpcs="https://lumen-rpc.nodes.guru,https://rpc.lumen.network"
+data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
 <h3>Lumen Mainnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
 </div>
 
 <!-- EMPE -->
-<div class="validator-card" data-rpc="https://empeiria-testnet-api.itrocket.net" data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
+<div class="validator-card"
+data-rpcs="https://empeiria-rpc.itrocket.net"
+data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
 <h3>Empe Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
 </div>
 
 <!-- LUMERA -->
-<div class="validator-card" data-rpc="https://rpc.lumera.io" data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
+<div class="validator-card"
+data-rpcs="https://rpc.lumera.io,https://lumera-rpc.kjnodes.com"
+data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
 <h3>Lumera Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
 </div>
 
 <!-- PUSH -->
-<div class="validator-card" data-rpc="https://api-t.pushchain.nodestake.org" data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
+<div class="validator-card"
+data-rpcs="https://rpc.pushchain.xyz"
+data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
 <h3>Pushchain Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
 </div>
 
 <!-- SAFRO -->
-<div class="validator-card" data-rpc="https://rest.testnet.safrochain.com" data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
+<div class="validator-card"
+data-rpcs="https://rpc.testnet.safrochain.com"
+data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
 <h3>Safrochain Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
 </div>
 
 </div>
@@ -158,11 +178,48 @@ footer {
 </footer>
 
 <script>
-async function fetchDashboard(rpc, valoper, card) {
+async function testRPC(rpc) {
+  const start = performance.now();
+
+  try {
+    const res = await fetch(rpc + "/status");
+    const data = await res.json();
+    const latency = Math.round(performance.now() - start);
+
+    return {
+      rpc,
+      latency,
+      healthy: true,
+      synced: !data.result.sync_info.catching_up
+    };
+  } catch {
+    return { rpc, latency: 9999, healthy: false, synced: false };
+  }
+}
+
+function scoreRPC(r) {
+  let score = 0;
+  if (r.healthy) score += 50;
+  if (r.synced) score += 30;
+  score += Math.max(0, 20 - r.latency / 50);
+  return score;
+}
+
+async function selectBestRPC(rpcs) {
+  const results = await Promise.all(rpcs.map(testRPC));
+  return results.map(r => ({...r, score: scoreRPC(r)}))
+    .sort((a,b)=>b.score-a.score)[0];
+}
+
+async function fetchDashboard(rpcData, valoper, card) {
+  const { rpc, latency } = rpcData;
+
   const statusEl = card.querySelector(".status-text");
   const blockEl = card.querySelector(".block-height");
   const syncEl = card.querySelector(".sync-status");
   const votingEl = card.querySelector(".voting-power");
+  const rpcEl = card.querySelector(".rpc-used");
+  const latencyEl = card.querySelector(".latency");
 
   try {
     const res = await fetch(rpc + "/status");
@@ -170,6 +227,9 @@ async function fetchDashboard(rpc, valoper, card) {
 
     blockEl.textContent = data.result.sync_info.latest_block_height;
     syncEl.textContent = data.result.sync_info.catching_up ? "Syncing" : "Synced";
+
+    rpcEl.textContent = rpc;
+    latencyEl.textContent = latency + " ms";
 
     statusEl.textContent = "🟢 Online";
     statusEl.className = "status-text status-online";
@@ -181,18 +241,38 @@ async function fetchDashboard(rpc, valoper, card) {
     votingEl.textContent = val ? val.voting_power : "N/A";
 
   } catch {
-    statusEl.textContent = "🔴 Offline";
+    statusEl.textContent = "🔴 Error";
     statusEl.className = "status-text status-offline";
   }
 }
 
-document.querySelectorAll(".validator-card").forEach(card => {
-  const rpc = card.getAttribute("data-rpc");
+async function initCard(card) {
+  const rpcList = card.getAttribute("data-rpcs").split(",");
   const valoper = card.getAttribute("data-validator");
 
-  fetchDashboard(rpc, valoper, card);
-  setInterval(() => fetchDashboard(rpc, valoper, card), 10000);
-});
+  const statusEl = card.querySelector(".status-text");
+  statusEl.textContent = "🔍 Selecting RPC...";
+
+  const bestRPC = await selectBestRPC(rpcList);
+
+  if (!bestRPC || !bestRPC.healthy) {
+    statusEl.textContent = "❌ No RPC";
+    return;
+  }
+
+  fetchDashboard(bestRPC, valoper, card);
+
+  setInterval(()=>fetchDashboard(bestRPC,valoper,card),10000);
+
+  setInterval(async ()=>{
+    const newRPC = await selectBestRPC(rpcList);
+    if(newRPC.rpc !== bestRPC.rpc){
+      fetchDashboard(newRPC,valoper,card);
+    }
+  },60000);
+}
+
+document.querySelectorAll(".validator-card").forEach(initCard);
 </script>
 
 </body>
