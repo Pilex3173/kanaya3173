@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PILEX3173 | Validator Dashboard</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PILEX3173 | Validator</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 body {
-  margin:0;
-  font-family:Inter;
-  background:#fff url('watermark_pudar.png') center/contain no-repeat fixed;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff url('watermark_pudar.png') no-repeat center center fixed;
+  background-size: contain;
 }
 
 header {
@@ -24,10 +27,13 @@ header {
 .logo-wrapper { display:flex; gap:8px; align-items:center; }
 .logo-wrapper img { width:28px; border-radius:50%; }
 
+.pactus-link { display:flex; gap:6px; align-items:center; text-decoration:none; color:#000; font-size:0.8rem; }
+.pactus-link img { width:22px; }
+
 section {
   background:#fff8dc;
-  margin:1rem;
   padding:1.5rem;
+  margin:1.5rem;
   border-radius:12px;
   border:2px dashed #000;
 }
@@ -38,21 +44,34 @@ section {
   gap:1rem;
 }
 
-.validator-card {
+.validator-card, .node-card {
   background:#fff;
-  padding:1rem;
-  border-radius:12px;
   border:2px dashed #000;
+  border-radius:12px;
+  padding:1rem;
   text-align:center;
+  cursor:pointer;
 }
+
+.chain-logo { width:32px; margin-bottom:6px; }
 
 .status-online { color:green; font-weight:bold; }
 .status-offline { color:red; font-weight:bold; }
+
+.menu-box {
+  background:black;
+  color:white;
+  padding:10px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
 footer {
   text-align:center;
   padding:1rem;
   background:#f0f0f0;
+  border-top:2px dashed #000;
 }
 </style>
 </head>
@@ -60,173 +79,200 @@ footer {
 <body>
 
 <header>
-<div class="logo-wrapper">
-<img src="logo.jpg">
-<b>PILEX3173</b>
-</div>
+  <div class="logo-wrapper">
+    <img src="logo.jpg">
+    <div class="logo anime-logo">PILEX3173</div>
+  </div>
+
+  <a href="https://pactus.org/" target="_blank" class="pactus-link">
+    <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
+    <span>Pactus</span>
+  </a>
 </header>
 
+<main>
+
 <section>
-<h2>Validator Dashboard (Smart Monitoring)</h2>
+<h2>Live Validator Status (Smart RPC)</h2>
 
 <div class="status-grid">
 
-<!-- LUMERA -->
+<!-- LUMEN -->
 <div class="validator-card"
-data-rpcs="https://rpc.lumera.io,https://lumera-rpc.kjnodes.com"
-data-rest="https://lcd.lumera.io"
-data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
-
-<h3>Lumera</h3>
+data-rpcs="https://lumen-rpc.nodes.guru,https://rpc.lumen.network"
+data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
+<h3>Lumen Mainnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
 <p>RPC: <span class="rpc-used">-</span></p>
 <p>Latency: <span class="latency">-</span></p>
-
-<p>Rank: <span class="rank">-</span></p>
-<p>Jailed: <span class="jailed">-</span></p>
-<p>Missed Blocks: <span class="missed">-</span></p>
-
 </div>
 
 <!-- EMPE -->
 <div class="validator-card"
 data-rpcs="https://empeiria-rpc.itrocket.net"
-data-rest="https://empeiria-testnet-api.itrocket.net"
 data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
-
-<h3>Empe</h3>
+<h3>Empe Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
 <p>Block: <span class="block-height">-</span></p>
 <p>Sync: <span class="sync-status">-</span></p>
 <p>Voting Power: <span class="voting-power">-</span></p>
 <p>RPC: <span class="rpc-used">-</span></p>
 <p>Latency: <span class="latency">-</span></p>
+</div>
 
-<p>Rank: <span class="rank">-</span></p>
-<p>Jailed: <span class="jailed">-</span></p>
-<p>Missed Blocks: <span class="missed">-</span></p>
+<!-- LUMERA -->
+<div class="validator-card"
+data-rpcs="https://rpc.lumera.io,https://lumera-rpc.kjnodes.com"
+data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
+<h3>Lumera Testnet</h3>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
+</div>
 
+<!-- PUSH -->
+<div class="validator-card"
+data-rpcs="https://rpc.pushchain.xyz"
+data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
+<h3>Pushchain Testnet</h3>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
+</div>
+
+<!-- SAFRO -->
+<div class="validator-card"
+data-rpcs="https://rpc.testnet.safrochain.com"
+data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
+<h3>Safrochain Testnet</h3>
+<p>Status: <span class="status-text">...</span></p>
+<p>Block: <span class="block-height">-</span></p>
+<p>Sync: <span class="sync-status">-</span></p>
+<p>Voting Power: <span class="voting-power">-</span></p>
+<p>RPC: <span class="rpc-used">-</span></p>
+<p>Latency: <span class="latency">-</span></p>
 </div>
 
 </div>
 </section>
 
+</main>
+
 <footer>
-<p>© 2025 PILEX3173 Validator</p>
+<p>© 2025 PILEX3173</p>
+<div style="margin-top:8px;">
+<a href="https://pactus.org/" target="_blank" class="pactus-link">
+<img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
+<span>Powered by Pactus</span>
+</a>
+</div>
 </footer>
 
 <script>
 async function testRPC(rpc) {
   const start = performance.now();
+
   try {
     const res = await fetch(rpc + "/status");
     const data = await res.json();
+    const latency = Math.round(performance.now() - start);
+
     return {
       rpc,
-      latency: Math.round(performance.now() - start),
+      latency,
       healthy: true,
       synced: !data.result.sync_info.catching_up
     };
   } catch {
-    return { rpc, latency: 9999, healthy:false, synced:false };
+    return { rpc, latency: 9999, healthy: false, synced: false };
   }
 }
 
-function scoreRPC(r){
-  return (r.healthy?50:0)+(r.synced?30:0)+Math.max(0,20-r.latency/50);
+function scoreRPC(r) {
+  let score = 0;
+  if (r.healthy) score += 50;
+  if (r.synced) score += 30;
+  score += Math.max(0, 20 - r.latency / 50);
+  return score;
 }
 
-async function selectBestRPC(rpcs){
+async function selectBestRPC(rpcs) {
   const results = await Promise.all(rpcs.map(testRPC));
-  return results.map(r=>({...r,score:scoreRPC(r)}))
+  return results.map(r => ({...r, score: scoreRPC(r)}))
     .sort((a,b)=>b.score-a.score)[0];
 }
 
-async function fetchDashboard(rpcData,valoper,card){
-  const {rpc,latency}=rpcData;
+async function fetchDashboard(rpcData, valoper, card) {
+  const { rpc, latency } = rpcData;
 
-  try{
-    const res = await fetch(rpc+"/status");
+  const statusEl = card.querySelector(".status-text");
+  const blockEl = card.querySelector(".block-height");
+  const syncEl = card.querySelector(".sync-status");
+  const votingEl = card.querySelector(".voting-power");
+  const rpcEl = card.querySelector(".rpc-used");
+  const latencyEl = card.querySelector(".latency");
+
+  try {
+    const res = await fetch(rpc + "/status");
     const data = await res.json();
 
-    card.querySelector(".block-height").textContent =
-      data.result.sync_info.latest_block_height;
+    blockEl.textContent = data.result.sync_info.latest_block_height;
+    syncEl.textContent = data.result.sync_info.catching_up ? "Syncing" : "Synced";
 
-    card.querySelector(".sync-status").textContent =
-      data.result.sync_info.catching_up?"Syncing":"Synced";
+    rpcEl.textContent = rpc;
+    latencyEl.textContent = latency + " ms";
 
-    card.querySelector(".rpc-used").textContent = rpc;
-    card.querySelector(".latency").textContent = latency+" ms";
+    statusEl.textContent = "🟢 Online";
+    statusEl.className = "status-text status-online";
 
-    card.querySelector(".status-text").textContent="🟢 Online";
-    card.querySelector(".status-text").className="status-text status-online";
-
-    const valRes = await fetch(rpc+"/validators?per_page=200");
+    const valRes = await fetch(rpc + "/validators?per_page=200");
     const valData = await valRes.json();
 
-    const val = valData.result.validators.find(v=>v.operator_address===valoper);
-    card.querySelector(".voting-power").textContent = val?val.voting_power:"N/A";
+    const val = valData.result.validators.find(v => v.operator_address === valoper);
+    votingEl.textContent = val ? val.voting_power : "N/A";
 
-  }catch{
-    card.querySelector(".status-text").textContent="🔴 Offline";
-    card.querySelector(".status-text").className="status-text status-offline";
+  } catch {
+    statusEl.textContent = "🔴 Error";
+    statusEl.className = "status-text status-offline";
   }
 }
 
-async function fetchValidatorExtra(rest,valoper,card){
-  try{
-    const res = await fetch(rest+"/cosmos/staking/v1beta1/validators/"+valoper);
-    const data = await res.json();
-    const v = data.validator;
+async function initCard(card) {
+  const rpcList = card.getAttribute("data-rpcs").split(",");
+  const valoper = card.getAttribute("data-validator");
 
-    card.querySelector(".jailed").textContent = v.jailed?"Yes":"No";
+  const statusEl = card.querySelector(".status-text");
+  statusEl.textContent = "🔍 Selecting RPC...";
 
-    const all = await fetch(rest+"/cosmos/staking/v1beta1/validators?status=BOND_STATUS_BONDED");
-    const allData = await all.json();
+  const bestRPC = await selectBestRPC(rpcList);
 
-    const sorted = allData.validators.sort((a,b)=>b.tokens-a.tokens);
-    const rank = sorted.findIndex(x=>x.operator_address===valoper)+1;
-
-    card.querySelector(".rank").textContent = rank>0?"#"+rank:"-";
-
-    const cons = v.consensus_pubkey.key;
-
-    const sign = await fetch(rest+"/cosmos/slashing/v1beta1/signing_infos/"+cons);
-    const signData = await sign.json();
-
-    card.querySelector(".missed").textContent =
-      signData.val_signing_info.missed_blocks_counter;
-
-  }catch{
-    card.querySelector(".rank").textContent="-";
-    card.querySelector(".jailed").textContent="-";
-    card.querySelector(".missed").textContent="-";
-  }
-}
-
-async function init(card){
-  const rpcs = card.dataset.rpcs.split(",");
-  const val = card.dataset.validator;
-  const rest = card.dataset.rest;
-
-  const best = await selectBestRPC(rpcs);
-
-  if(!best || !best.healthy){
-    card.querySelector(".status-text").textContent="No RPC";
+  if (!bestRPC || !bestRPC.healthy) {
+    statusEl.textContent = "❌ No RPC";
     return;
   }
 
-  fetchDashboard(best,val,card);
-  if(rest) fetchValidatorExtra(rest,val,card);
+  fetchDashboard(bestRPC, valoper, card);
 
-  setInterval(()=>fetchDashboard(best,val,card),10000);
-  setInterval(()=>fetchValidatorExtra(rest,val,card),20000);
+  setInterval(()=>fetchDashboard(bestRPC,valoper,card),10000);
+
+  setInterval(async ()=>{
+    const newRPC = await selectBestRPC(rpcList);
+    if(newRPC.rpc !== bestRPC.rpc){
+      fetchDashboard(newRPC,valoper,card);
+    }
+  },60000);
 }
 
-document.querySelectorAll(".validator-card").forEach(init);
+document.querySelectorAll(".validator-card").forEach(initCard);
 </script>
 
 </body>
