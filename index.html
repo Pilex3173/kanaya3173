@@ -108,6 +108,9 @@ data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
 <p>Voting Power: <span class="voting-power">-</span></p>
 <p>RPC: <span class="rpc-used">-</span></p>
 <p>Latency: <span class="latency">-</span></p>
+<p>Rank: <span class="rank">-</span></p>
+<p>Jailed: <span class="jailed">-</span></p>
+<p>Missed Blocks: <span class="missed">-</span></p>
 </div>
 
 <!-- EMPE -->
@@ -121,6 +124,9 @@ data-validator="empevaloper1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l">
 <p>Voting Power: <span class="voting-power">-</span></p>
 <p>RPC: <span class="rpc-used">-</span></p>
 <p>Latency: <span class="latency">-</span></p>
+<p>Rank: <span class="rank">-</span></p>
+<p>Jailed: <span class="jailed">-</span></p>
+<p>Missed Blocks: <span class="missed">-</span></p>
 </div>
 
 <!-- LUMERA -->
@@ -134,6 +140,9 @@ data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
 <p>Voting Power: <span class="voting-power">-</span></p>
 <p>RPC: <span class="rpc-used">-</span></p>
 <p>Latency: <span class="latency">-</span></p>
+<p>Rank: <span class="rank">-</span></p>
+<p>Jailed: <span class="jailed">-</span></p>
+<p>Missed Blocks: <span class="missed">-</span></p>
 </div>
 
 <!-- PUSH -->
@@ -147,6 +156,9 @@ data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
 <p>Voting Power: <span class="voting-power">-</span></p>
 <p>RPC: <span class="rpc-used">-</span></p>
 <p>Latency: <span class="latency">-</span></p>
+<p>Rank: <span class="rank">-</span></p>
+<p>Jailed: <span class="jailed">-</span></p>
+<p>Missed Blocks: <span class="missed">-</span></p>
 </div>
 
 <!-- SAFRO -->
@@ -160,6 +172,9 @@ data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
 <p>Voting Power: <span class="voting-power">-</span></p>
 <p>RPC: <span class="rpc-used">-</span></p>
 <p>Latency: <span class="latency">-</span></p>
+<p>Rank: <span class="rank">-</span></p>
+<p>Jailed: <span class="jailed">-</span></p>
+<p>Missed Blocks: <span class="missed">-</span></p>
 </div>
 
 </div>
@@ -271,7 +286,44 @@ async function initCard(card) {
     }
   },60000);
 }
+async function fetchValidatorExtra(rest, valoper, card) {
+  const rankEl = card.querySelector(".rank");
+  const jailedEl = card.querySelector(".jailed");
+  const missedEl = card.querySelector(".missed");
 
+  try {
+    // 🔹 Validator Info
+    const res = await fetch(rest + "/cosmos/staking/v1beta1/validators/" + valoper);
+    const data = await res.json();
+
+    const validator = data.validator;
+
+    jailedEl.textContent = validator.jailed ? "Yes ❌" : "No ✅";
+
+    // 🔹 Rank (approx)
+    const allVal = await fetch(rest + "/cosmos/staking/v1beta1/validators?status=BOND_STATUS_BONDED");
+    const allData = await allVal.json();
+
+    const sorted = allData.validators
+      .sort((a,b)=> parseInt(b.tokens) - parseInt(a.tokens));
+
+    const rank = sorted.findIndex(v => v.operator_address === valoper) + 1;
+    rankEl.textContent = rank > 0 ? "#" + rank : "N/A";
+
+    // 🔹 Missed blocks
+    const consKey = validator.consensus_pubkey.key;
+
+    const signRes = await fetch(rest + "/cosmos/slashing/v1beta1/signing_infos/" + consKey);
+    const signData = await signRes.json();
+
+    missedEl.textContent = signData.val_signing_info.missed_blocks_counter;
+
+  } catch (e) {
+    rankEl.textContent = "-";
+    jailedEl.textContent = "-";
+    missedEl.textContent = "-";
+  }
+}
 document.querySelectorAll(".validator-card").forEach(initCard);
 </script>
 
