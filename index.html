@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PILEX3173 | Validator</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@
       color: #000000;
     }
 
-    /* Pactus */
+    /* PACTUS */
     .pactus-link {
       display: flex;
       align-items: center;
@@ -74,7 +75,6 @@
 
     section h2 {
       font-size: 1.3rem;
-      color: #111111;
       border-bottom: 1px dashed #000000;
       padding-bottom: 0.4rem;
     }
@@ -82,7 +82,6 @@
     section p {
       font-size: 0.9rem;
       line-height: 1.6;
-      color: #333333;
     }
 
     .status-grid {
@@ -96,44 +95,19 @@
       padding: 1.5rem;
       background: #ffffff;
       border: 2px dashed #000000;
-      color: #111111;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
       cursor: pointer;
       text-align: center;
-      min-height: 160px;
     }
 
     .validator-card:hover, .node-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
-    .validator-card h3, .node-card h3 {
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
-    }
-
-    .status-text {
-      font-size: 0.95rem;
-    }
-
-    .status-online {
-      color: #2e7d32;
-      font-weight: bold;
-    }
-
-    .status-offline {
-      color: #c62828;
-      font-weight: bold;
-    }
-
-    a.validator-card {
-      text-decoration: none;
-    }
+    .status-online { color: green; font-weight: bold; }
+    .status-offline { color: red; font-weight: bold; }
 
     #menu-links {
       display: flex;
@@ -143,115 +117,113 @@
     }
 
     .menu-box {
-      background-color: #000000;
-      color: #ffffff;
+      background: black;
+      color: white;
       padding: 1rem 2rem;
       border-radius: 10px;
-      font-size: 1.4rem;
-      font-weight: bold;
       text-decoration: none;
-      border: 2px solid #000000;
-      transition: all 0.3s ease;
-    }
-
-    .menu-box:hover {
-      background-color: #222;
-    }
-
-    #contact a {
-      color: #000000;
       font-weight: bold;
-      font-size: 1.5rem;
-      text-decoration: none;
-    }
-
-    #contact a:hover {
-      opacity: 0.8;
     }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #f0f0f0;
-      color: #333333;
-      font-size: 0.85rem;
-      border-top: 2px dashed #000000;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      #menu-links {
-        flex-direction: column;
-        align-items: center;
-      }
+      background: #f0f0f0;
+      border-top: 2px dashed #000;
     }
 
     .chain-logo {
       width: 32px;
-      height: 32px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto 8px;
+      margin-bottom: 8px;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="logo-wrapper">
-      <img src="logo.jpg" alt="Logo">
-      <div class="logo anime-logo">PILEX3173</div>
+
+<header>
+  <div class="logo-wrapper">
+    <img src="logo.jpg" alt="Logo">
+    <div class="logo anime-logo">PILEX3173</div>
+  </div>
+
+  <!-- PACTUS -->
+  <a href="https://pactus.org/" target="_blank" class="pactus-link">
+    <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
+    <span>Pactus</span>
+  </a>
+</header>
+
+<main>
+
+<section>
+  <h2>PILEX3173 Validator And Node Service</h2>
+  <p>We Trusted Validator for Decentralized Future</p>
+</section>
+
+<section>
+  <h2>About Me</h2>
+  <p>Validator aktif di berbagai testnet & mainnet dengan fokus uptime dan transparansi.</p>
+</section>
+
+<div id="menu-links">
+  <a href="https://explore.pilex.xyz/" target="_blank" class="menu-box">EXPLORER</a>
+</div>
+
+<section>
+  <h2>Validator Status</h2>
+  <div class="status-grid">
+    <div class="validator-card" data-url="https://explore.pilex.xyz/">
+      <img src="assets/lumera.png" class="chain-logo">
+      <h3>Lumera</h3>
+      <p class="status-text">Checking...</p>
     </div>
-    
+  </div>
+</section>
+
+<section>
+  <h2>Node Status</h2>
+  <div class="status-grid">
+    <div class="node-card" data-url="https://app.nodepay.ai/dashboard">
+      <img src="assets/nodepay.png" class="chain-logo">
+      <h3>Nodepay</h3>
+      <p class="status-text">Checking...</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <a href="https://github.com/Pilex3173" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2025 PILEX3173</p>
+
+  <div style="margin-top:8px;">
     <a href="https://pactus.org/" target="_blank" class="pactus-link">
-      <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg" alt="Pactus">
-      <span>Pactus</span>
+      <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg">
+      <span>Powered by Pactus Network</span>
     </a>
-  </header>
+  </div>
+</footer>
 
-  <main>
-    <section id="home">
-      <h2>PILEX3173 Validator And Node Service</h2>
-      <p class="tagline">We Trusted Validator for Decentralized Future</p>
-    </section>
+<script>
+document.querySelectorAll(".validator-card, .node-card").forEach((card) => {
+  const url = card.getAttribute("data-url");
+  const statusEl = card.querySelector(".status-text");
 
-  </main>
+  fetch(url, { mode: "no-cors" })
+    .then(() => statusEl.textContent = "🟢 Online")
+    .catch(() => statusEl.textContent = "🔴 Offline");
 
-  <footer>
-    <p>© 2025 PILEX3173. Trusted Validator ⚙️</p>
+  card.onclick = () => window.open(url, "_blank");
+});
+</script>
 
-    <div style="margin-top:8px;">
-      <a href="https://pactus.org/" target="_blank" class="pactus-link">
-        <img src="https://raw.githubusercontent.com/pactus-project/pactus-website/main/static/images/logo/pactus-logo-circle.svg" alt="Pactus">
-        <span>Powered by Pactus Network</span>
-      </a>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".validator-card, .node-card").forEach((card) => {
-      const url = card.getAttribute("data-url");
-      const statusEl = card.querySelector(".status-text");
-      if (!url || !statusEl) return;
-
-      fetch(url, { method: "GET", mode: "no-cors" })
-        .then(() => {
-          statusEl.textContent = "🟢 Online";
-          statusEl.classList.add("status-online");
-        })
-        .catch(() => {
-          statusEl.textContent = "🔴 Offline";
-          statusEl.classList.add("status-offline");
-        });
-
-      card.addEventListener("click", () => {
-        if (url) window.open(url, "_blank");
-      });
-    });
-  </script>
 </body>
 </html>
