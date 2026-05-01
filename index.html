@@ -99,7 +99,8 @@ footer {
 
 <!-- LUMEN -->
 <div class="validator-card"
-data-rpcs="https://lumen-rpc.nodes.guru,https://rpc.lumen.network"
+data-rpcs="https://rpc.lumen.network"
+data-rest="https://lumen-api.node9x.com"
 data-validator="lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd">
 <h3>Lumen Mainnet</h3>
 <p>Status: <span class="status-text">...</span></p>
@@ -138,7 +139,8 @@ data-validator="lumeravaloper177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w">
 
 <!-- PUSH -->
 <div class="validator-card"
-data-rpcs="https://rpc.pushchain.xyz"
+data-rpcs="https://rpc-t.pushchain.xyz"
+data-rest="https://api-t.pushchain.nodestake.org"
 data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
 <h3>Pushchain Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
@@ -152,6 +154,7 @@ data-validator="pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9">
 <!-- SAFRO -->
 <div class="validator-card"
 data-rpcs="https://rpc.testnet.safrochain.com"
+data-rest="https://rest.testnet.safrochain.com"
 data-validator="addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd">
 <h3>Safrochain Testnet</h3>
 <p>Status: <span class="status-text">...</span></p>
@@ -234,7 +237,14 @@ async function fetchDashboard(rpcData, valoper, card) {
     statusEl.textContent = "🟢 Online";
     statusEl.className = "status-text status-online";
 
-    const valRes = await fetch(rpc + "/validators?per_page=200");
+    const rest = card.getAttribute("data-rest");
+
+const valRes = await fetch(
+  rest + "/cosmos/staking/v1beta1/validators/" + valoper
+);
+
+const valData = await valRes.json();
+votingEl.textContent = valData.validator?.tokens || "N/A";
     const valData = await valRes.json();
 
     const val = valData.result.validators.find(v => v.operator_address === valoper);
