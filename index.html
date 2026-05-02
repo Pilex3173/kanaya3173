@@ -307,13 +307,14 @@
     text-align: center;
   }
   .powered-by {
-    display: inline-flex; align-items: center; gap: 12px;
-    padding: 10px 24px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 50px;
+    display: inline-flex; align-items: center; gap: 16px;
+    padding: 16px 32px;
+    background: var(--surface); border: 1px solid rgba(0,210,255,0.25); border-radius: 12px;
     text-decoration: none; margin-bottom: 24px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 24px rgba(0,210,255,0.05);
   }
-  .powered-by:hover { border-color: rgba(0,210,255,0.3); }
+  .powered-by:hover { border-color: rgba(0,210,255,0.5); box-shadow: 0 0 40px rgba(0,210,255,0.15); }
   .powered-by img { width: 28px; height: 28px; }
   .powered-by-text {
     font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
@@ -500,7 +501,7 @@
           <span class="val-badge badge-testnet">Testnet</span>
         </div>
         <div class="val-addr">
-          <span>safrovaloper</span>153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd
+          addr_<span>safrovaloper</span>153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd
         </div>
         <a href="https://explorer.maouam.nodelab.my.id/safrochain-testnet/staking/addr_safrovaloper153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd" target="_blank" class="btn-delegate">
           <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -518,4 +519,252 @@
           <span class="val-badge badge-testnet">Testnet</span>
         </div>
         <div class="val-addr">
-   
+          <span>pushvaloper</span>1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9
+        </div>
+        <a href="https://explorer.maouam.nodelab.my.id/pushchain-testnet/staking/pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9" target="_blank" class="btn-delegate">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M3 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Delegate Now
+        </a>
+      </div>
+
+      <!-- Lumen Mainnet -->
+      <div class="val-card reveal" style="border-color: rgba(0,210,255,0.3); background: linear-gradient(135deg, #0b1520, #0d1e30);">
+        <div class="val-header">
+          <div class="val-chain">Lumen Network</div>
+          <span class="val-badge badge-mainnet">✦ Mainnet</span>
+        </div>
+        <div class="val-addr">
+          <span>lmnvaloper</span>16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd
+        </div>
+        <a href="https://explorer.maouam.nodelab.my.id/lumen-mainnet/staking/lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd" target="_blank" class="btn-delegate" style="background: linear-gradient(135deg, rgba(0,210,255,0.2), rgba(58,123,213,0.2)); border-color: rgba(0,210,255,0.6);">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M3 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Delegate Now
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-label">// about</div>
+        <h2 class="section-title" style="margin-bottom:24px;">Who is <em>pilex3173</em>?</h2>
+        <p>
+          Seorang <strong>validator node operator profesional</strong> yang berdedikasi untuk mengamankan jaringan blockchain dan mendukung desentralisasi ekosistem Web3.
+        </p>
+        <p>
+          Dengan pengalaman mengelola node di berbagai <strong>testnet dan mainnet</strong>, pilex3173 berkomitmen memberikan performa terbaik dengan uptime tinggi dan keamanan terjamin.
+        </p>
+        <p>
+          Bergabunglah dalam perjalanan membangun infrastruktur blockchain yang <strong>handal, aman, dan terdesentralisasi</strong>.
+        </p>
+      </div>
+      <div class="about-features reveal">
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-text">
+            <strong>High Security</strong>
+            <span>Infrastruktur terlindungi 24/7</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text">
+            <strong>High Performance</strong>
+            <span>Latensi rendah, uptime tinggi</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌐</div>
+          <div class="feature-text">
+            <strong>Multi-Chain Support</strong>
+            <span>5 chain aktif & terus bertumbuh</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🤝</div>
+          <div class="feature-text">
+            <strong>Community Driven</strong>
+            <span>Transparan & terbuka untuk delegasi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label reveal">// contact</div>
+    <h2 class="section-title reveal">Get in <em>Touch</em></h2>
+    <div class="contact-grid">
+
+      <!-- Twitter -->
+      <a href="https://twitter.com/ardihandoyo" target="_blank" class="contact-card reveal">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </span>
+        <div class="contact-platform">Twitter / X</div>
+        <div class="contact-handle">@ardihandoyo</div>
+      </a>
+
+      <!-- Discord -->
+      <a href="https://discord.com/users/rahmatardihandoyo" target="_blank" class="contact-card reveal">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+        </span>
+        <div class="contact-platform">Discord</div>
+        <div class="contact-handle">rahmatardihandoyo</div>
+      </a>
+
+      <!-- Telegram -->
+      <a href="https://t.me/Rahmat3173" target="_blank" class="contact-card reveal">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+        </span>
+        <div class="contact-platform">Telegram</div>
+        <div class="contact-handle">@Rahmat3173</div>
+      </a>
+
+      <!-- Email Official -->
+      <a href="mailto:pilex@pilex.xyz" class="contact-card reveal">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" style="color:#00d2ff">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+        </span>
+        <div class="contact-platform">Email (Official)</div>
+        <div class="contact-handle">pilex@pilex.xyz</div>
+      </a>
+
+      <!-- Email Personal -->
+      <a href="mailto:rahmatardihandoyo@gmail.com" class="contact-card reveal">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.147C21.69 2.28 24 3.434 24 5.457z"/>
+          </svg>
+        </span>
+        <div class="contact-platform">Email (Personal)</div>
+        <div class="contact-handle">rahmatardihandoyo@gmail.com</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="margin-bottom: 32px;">
+    <div style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:#6a8fa8; margin-bottom:16px;">— Partner —</div>
+    <a href="https://pactus.org/" target="_blank" class="powered-by">
+      <!-- Pactus official logo SVG inline -->
+      <svg width="44" height="44" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00d2ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#3a7bd5;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- outer circle -->
+        <circle cx="100" cy="100" r="95" fill="url(#pg1)" />
+        <!-- inner white shape - P letter style -->
+        <circle cx="100" cy="100" r="78" fill="#0b1520" />
+        <!-- Pactus "P" hexagon style logo mark -->
+        <polygon points="100,24 168,62 168,138 100,176 32,138 32,62" fill="none" stroke="url(#pg1)" stroke-width="6"/>
+        <!-- inner dot + lines like node -->
+        <circle cx="100" cy="100" r="18" fill="url(#pg1)"/>
+        <circle cx="100" cy="100" r="10" fill="#0b1520"/>
+        <line x1="100" y1="24" x2="100" y2="82" stroke="url(#pg1)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="168" y1="62" x2="113" y2="91" stroke="url(#pg1)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="168" y1="138" x2="113" y2="109" stroke="url(#pg1)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="100" y1="176" x2="100" y2="118" stroke="url(#pg1)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="32" y1="138" x2="87" y2="109" stroke="url(#pg1)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="32" y1="62" x2="87" y2="91" stroke="url(#pg1)" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="powered-by-text" style="font-size:0.65rem; color:#6a8fa8; letter-spacing:0.15em;">POWERED BY</div>
+        <div style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; background:linear-gradient(90deg,#00d2ff,#3a7bd5); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">PACTUS NETWORK</div>
+      </div>
+    </a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2025 <span>pilex3173</span> &middot; All rights reserved
+  </div>
+</footer>
+
+<script>
+  // ── Starfield canvas ──
+  (function() {
+    const canvas = document.createElement('canvas');
+    document.getElementById('stars').appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < 180; i++) {
+      stars.push({
+        x: Math.random(), y: Math.random(),
+        r: Math.random() * 1.2 + 0.2,
+        o: Math.random() * 0.6 + 0.1,
+        speed: Math.random() * 0.0002 + 0.00005
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(180,220,255,${s.o})`;
+        ctx.fill();
+        s.y -= s.speed;
+        if (s.y < 0) { s.y = 1; s.x = Math.random(); }
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ── Floating particles ──
+  for (let i = 0; i < 12; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = (Math.random() * 100) + '%';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.opacity = (0.2 + Math.random() * 0.4);
+    document.body.appendChild(p);
+  }
+
+
+</script>
+</body>
+</html>
