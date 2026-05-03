@@ -17,375 +17,198 @@
     --accent: #00d2ff;
     --accent2: #3a7bd5;
     --gold: #f5c842;
+    --green: #7ddf8e;
     --text: #e8f4ff;
     --text-dim: #6a8fa8;
     --glow: 0 0 30px rgba(0,210,255,0.2);
   }
 
   html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Space Mono', monospace; overflow-x: hidden; min-height: 100vh; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Space Mono', monospace;
-    overflow-x: hidden;
-    min-height: 100vh;
-  }
-
-  /* ── STARFIELD ── */
-  #stars {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(0,90,160,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(0,210,255,0.08) 0%, transparent 50%);
-  }
+  #stars { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(0,90,160,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(0,210,255,0.08) 0%, transparent 50%); }
   #stars canvas { width: 100%; height: 100%; }
 
-  /* ── NAV ── */
+  /* PACTUS TOP BANNER */
+  .pactus-banner {
+    position: relative; z-index: 101;
+    background: linear-gradient(90deg, rgba(0,20,35,0.98), rgba(0,45,70,0.98), rgba(0,20,35,0.98));
+    border-bottom: 1px solid rgba(0,210,255,0.2);
+    padding: 9px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+  }
+  .pactus-banner-inner { display: flex; align-items: center; gap: 10px; }
+  .pactus-banner img { width: 28px; height: 28px; flex-shrink: 0; }
+  .pactus-banner-text { font-size: 0.7rem; letter-spacing: 0.08em; color: var(--text-dim); }
+  .pactus-banner-text strong { color: var(--accent); font-family: 'Syne', sans-serif; }
+  .pactus-banner-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 14px; background: rgba(0,210,255,0.1); border: 1px solid rgba(0,210,255,0.3); border-radius: 50px;
+    color: var(--accent); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; font-weight: 700; white-space: nowrap;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .pactus-banner-link:hover { background: rgba(0,210,255,0.2); box-shadow: 0 0 14px rgba(0,210,255,0.25); }
+
+  /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 47px; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    background: rgba(5,10,15,0.7);
-    backdrop-filter: blur(16px);
+    padding: 16px 48px;
+    background: rgba(5,10,15,0.85); backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo {
-    display: flex; align-items: center; gap: 12px;
-  }
-  .nav-logo img {
-    width: 38px; height: 38px; border-radius: 50%;
-    border: 2px solid var(--accent);
-    object-fit: cover;
-    box-shadow: 0 0 16px rgba(0,210,255,0.4);
-  }
-  .nav-logo span {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .nav-links { display: flex; gap: 32px; }
-  .nav-links a {
-    color: var(--text-dim); text-decoration: none;
-    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-    transition: color 0.2s;
-  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover; box-shadow: 0 0 14px rgba(0,210,255,0.4); }
+  .nav-logo span { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.05em; background: linear-gradient(90deg,#00d2ff,#3a7bd5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
 
-  /* ── HERO ── */
-  .hero {
-    position: relative; z-index: 1;
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 120px 24px 80px;
-    text-align: center;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(0,210,255,0.07);
-    border: 1px solid rgba(0,210,255,0.25);
-    border-radius: 50px;
-    padding: 6px 18px;
-    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 32px;
-    animation: fadeDown 0.8s ease both;
-  }
-  .hero-badge::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 1.5s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { opacity:1; transform:scale(1); }
-    50% { opacity:0.4; transform:scale(1.4); }
-  }
-
-  .hero-logo {
-    width: 120px; height: 120px; border-radius: 50%;
-    border: 3px solid var(--accent);
-    object-fit: cover;
-    box-shadow: 0 0 60px rgba(0,210,255,0.35), 0 0 120px rgba(0,210,255,0.1);
-    margin-bottom: 32px;
-    animation: fadeUp 0.9s 0.1s ease both;
-  }
-
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    background: linear-gradient(135deg, #ffffff 0%, #00d2ff 50%, #3a7bd5 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    animation: fadeUp 0.9s 0.2s ease both;
-    margin-bottom: 16px;
-  }
-  .hero-sub {
-    font-size: 0.9rem; color: var(--text-dim); letter-spacing: 0.08em;
-    animation: fadeUp 0.9s 0.3s ease both; margin-bottom: 48px;
-  }
+  /* HERO */
+  .hero { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 170px 24px 80px; text-align: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,210,255,0.07); border: 1px solid rgba(0,210,255,0.25); border-radius: 50px; padding: 6px 18px; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; animation: fadeDown 0.8s ease both; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
+  .hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; box-shadow: 0 0 60px rgba(0,210,255,0.35),0 0 120px rgba(0,210,255,0.1); margin-bottom: 28px; animation: fadeUp 0.9s 0.1s ease both; }
+  .hero h1 { font-family: 'Syne',sans-serif; font-size: clamp(3rem,8vw,6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1; background: linear-gradient(135deg,#fff 0%,#00d2ff 50%,#3a7bd5 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation: fadeUp 0.9s 0.2s ease both; margin-bottom: 14px; }
+  .hero-sub { font-size: 0.88rem; color: var(--text-dim); letter-spacing: 0.08em; animation: fadeUp 0.9s 0.3s ease both; margin-bottom: 44px; }
   .hero-sub span { color: var(--accent); }
-
-  .hero-btns {
-    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
-    animation: fadeUp 0.9s 0.4s ease both;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 36px;
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    color: #fff; font-family: 'Space Mono', monospace;
-    font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; border-radius: 4px;
-    box-shadow: 0 4px 24px rgba(0,210,255,0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.9s 0.4s ease both; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 13px 32px; background: linear-gradient(135deg,#00d2ff,#3a7bd5); color: #fff; font-family: 'Space Mono',monospace; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,210,255,0.35); transition: transform 0.2s,box-shadow 0.2s; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,210,255,0.5); }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 36px;
-    background: transparent;
-    border: 1px solid rgba(0,210,255,0.4);
-    color: var(--accent); font-family: 'Space Mono', monospace;
-    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; border-radius: 4px;
-    transition: background 0.2s, border-color 0.2s;
-  }
+  .btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 13px 32px; background: transparent; border: 1px solid rgba(0,210,255,0.4); color: var(--accent); font-family: 'Space Mono',monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: background 0.2s,border-color 0.2s; }
   .btn-outline:hover { background: rgba(0,210,255,0.08); border-color: var(--accent); }
 
-  /* ── STATS ── */
-  .stats-bar {
-    position: relative; z-index: 1;
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 1px;
-    margin: 0 auto 80px; max-width: 900px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 8px; overflow: hidden;
-  }
-  .stat-item {
-    flex: 1; min-width: 140px;
-    background: var(--surface);
-    padding: 24px 20px; text-align: center;
-  }
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem; font-weight: 800;
-    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .stat-label { font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+  /* STATS */
+  .stats-bar { position: relative; z-index: 1; display: flex; justify-content: center; flex-wrap: wrap; gap: 1px; margin: 0 auto 80px; max-width: 900px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .stat-item { flex: 1; min-width: 130px; background: var(--surface); padding: 22px 16px; text-align: center; }
+  .stat-num { font-family: 'Syne',sans-serif; font-size: 1.7rem; font-weight: 800; background: linear-gradient(90deg,#00d2ff,#3a7bd5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .stat-label { font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
 
-  /* ── SECTION ── */
+  /* SECTION */
   section { position: relative; z-index: 1; padding: 80px 24px; }
   .container { max-width: 1000px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 12px;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
-    margin-bottom: 48px; line-height: 1.1;
-  }
+  .section-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .section-title { font-family: 'Syne',sans-serif; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 800; margin-bottom: 40px; line-height: 1.1; }
   .section-title em { font-style: normal; color: var(--accent); }
 
-  /* ── VALIDATOR CARDS ── */
-  .validators-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-  }
-  .val-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 28px;
-    position: relative; overflow: hidden;
-    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-  }
-  .val-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    opacity: 0; transition: opacity 0.25s;
-  }
+  /* VALIDATOR CARDS */
+  .validators-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(290px,1fr)); gap: 14px; }
+  .val-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px; position: relative; overflow: hidden; transition: transform 0.25s,border-color 0.25s,box-shadow 0.25s; }
+  .val-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg,var(--accent),var(--accent2)); opacity: 0; transition: opacity 0.25s; }
   .val-card:hover { transform: translateY(-4px); border-color: rgba(0,210,255,0.3); box-shadow: var(--glow); }
   .val-card:hover::before { opacity: 1; }
 
-  .val-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
-  .val-chain {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem;
-    line-height: 1.2;
-  }
-  .val-badge {
-    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 3px 10px; border-radius: 50px;
-    font-weight: 700;
-  }
+  /* card with logo layout */
+  .val-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .val-logo { width: 42px; height: 42px; border-radius: 50%; object-fit: contain; flex-shrink: 0; background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 4px; }
+  .val-header-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .val-header-top { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+  .val-chain { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
+  .val-badge { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 50px; font-weight: 700; white-space: nowrap; }
   .badge-testnet { background: rgba(245,200,66,0.12); color: var(--gold); border: 1px solid rgba(245,200,66,0.3); }
   .badge-mainnet { background: rgba(0,210,255,0.1); color: var(--accent); border: 1px solid rgba(0,210,255,0.3); }
+  .badge-investor { background: rgba(125,223,142,0.12); color: var(--green); border: 1px solid rgba(125,223,142,0.3); }
 
-  .val-addr {
-    font-size: 0.68rem; color: var(--text-dim);
-    background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 4px; padding: 8px 12px;
-    word-break: break-all; line-height: 1.6;
-    margin-bottom: 20px;
-  }
+  .val-addr { font-size: 0.63rem; color: var(--text-dim); background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; padding: 8px 10px; word-break: break-all; line-height: 1.6; margin-bottom: 14px; }
   .val-addr span { color: var(--accent); }
 
-  .btn-delegate {
-    display: inline-flex; align-items: center; gap: 8px;
-    width: 100%; justify-content: center;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, rgba(0,210,255,0.1), rgba(58,123,213,0.1));
-    border: 1px solid rgba(0,210,255,0.3);
-    color: var(--accent); border-radius: 4px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; font-weight: 700;
-    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
-  }
-  .btn-delegate:hover {
-    background: linear-gradient(135deg, rgba(0,210,255,0.2), rgba(58,123,213,0.2));
-    border-color: var(--accent); box-shadow: 0 0 20px rgba(0,210,255,0.2);
-  }
-  .btn-delegate svg { width: 14px; height: 14px; }
+  .btn-delegate { display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; padding: 10px 16px; background: linear-gradient(135deg,rgba(0,210,255,0.08),rgba(58,123,213,0.08)); border: 1px solid rgba(0,210,255,0.28); color: var(--accent); border-radius: 4px; font-family: 'Space Mono',monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-weight: 700; transition: background 0.2s,border-color 0.2s,box-shadow 0.2s; }
+  .btn-delegate:hover { background: linear-gradient(135deg,rgba(0,210,255,0.18),rgba(58,123,213,0.18)); border-color: var(--accent); box-shadow: 0 0 18px rgba(0,210,255,0.2); }
+  .btn-delegate svg { width: 13px; height: 13px; }
 
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
-  }
-  .about-text p {
-    color: var(--text-dim); line-height: 1.9; font-size: 0.85rem; margin-bottom: 20px;
-  }
+  /* Pactus card */
+  .pactus-card { border-color: rgba(125,223,142,0.2); background: linear-gradient(135deg,#0b1520,#0b1a10); }
+  .pactus-card::before { background: linear-gradient(90deg,var(--green),var(--accent)) !important; }
+  .pactus-btn { border-color: rgba(125,223,142,0.35); color: var(--green); background: linear-gradient(135deg,rgba(125,223,142,0.08),rgba(0,210,255,0.08)); }
+  .pactus-btn:hover { border-color: var(--green); background: linear-gradient(135deg,rgba(125,223,142,0.18),rgba(0,210,255,0.15)); box-shadow: 0 0 18px rgba(125,223,142,0.2); }
+
+  /* Mainnet card */
+  .mainnet-card { border-color: rgba(0,210,255,0.22); background: linear-gradient(135deg,#0b1520,#0c1b2a); }
+  .mainnet-btn { border-color: rgba(0,210,255,0.45); background: linear-gradient(135deg,rgba(0,210,255,0.12),rgba(58,123,213,0.12)); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-text p { color: var(--text-dim); line-height: 1.9; font-size: 0.83rem; margin-bottom: 18px; }
   .about-text p strong { color: var(--text); }
-  .about-features { display: grid; gap: 12px; }
-  .feature-item {
-    display: flex; align-items: center; gap: 14px;
-    padding: 16px 20px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
-  }
-  .feature-icon {
-    width: 36px; height: 36px; border-radius: 6px;
-    background: linear-gradient(135deg, rgba(0,210,255,0.15), rgba(58,123,213,0.15));
-    border: 1px solid rgba(0,210,255,0.2);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 1rem;
-  }
-  .feature-text { font-size: 0.8rem; }
-  .feature-text strong { display: block; color: var(--text); font-family: 'Syne', sans-serif; font-size: 0.85rem; }
+  .about-features { display: grid; gap: 10px; }
+  .feature-item { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+  .feature-icon { width: 34px; height: 34px; border-radius: 6px; background: linear-gradient(135deg,rgba(0,210,255,0.15),rgba(58,123,213,0.15)); border: 1px solid rgba(0,210,255,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem; }
+  .feature-text { font-size: 0.78rem; }
+  .feature-text strong { display: block; color: var(--text); font-family: 'Syne',sans-serif; font-size: 0.82rem; }
   .feature-text span { color: var(--text-dim); }
 
-  /* ── CONTACT ── */
+  /* CONTACT */
   #contact { background: var(--surface2); }
-  .contact-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;
-  }
-  .contact-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    padding: 24px 20px; text-align: center;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    text-decoration: none; display: block;
-  }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 14px; }
+  .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px 16px; text-align: center; transition: border-color 0.2s,transform 0.2s,box-shadow 0.2s; text-decoration: none; display: block; }
   .contact-card:hover { border-color: rgba(0,210,255,0.35); transform: translateY(-3px); box-shadow: var(--glow); }
-  .contact-icon { display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; width: 48px; height: 48px; }
-  .contact-platform {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
-    color: var(--text); margin-bottom: 6px;
-  }
-  .contact-handle { font-size: 0.72rem; color: var(--accent); }
+  .contact-icon { display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; width: 44px; height: 44px; }
+  .contact-platform { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 0.82rem; color: var(--text); margin-bottom: 5px; }
+  .contact-handle { font-size: 0.68rem; color: var(--accent); }
 
-  /* ── FOOTER ── */
-  footer {
-    position: relative; z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 40px 24px;
-    text-align: center;
-  }
-  .powered-by {
-    display: inline-flex; align-items: center; gap: 16px;
-    padding: 16px 32px;
-    background: var(--surface); border: 1px solid rgba(0,210,255,0.25); border-radius: 12px;
-    text-decoration: none; margin-bottom: 24px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 24px rgba(0,210,255,0.05);
-  }
-  .powered-by:hover { border-color: rgba(0,210,255,0.5); box-shadow: 0 0 40px rgba(0,210,255,0.15); }
-  .powered-by img { width: 28px; height: 28px; }
-  .powered-by-text {
-    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--text-dim);
-  }
-  .powered-by-text strong { color: var(--text); }
-  .footer-copy { font-size: 0.7rem; color: var(--text-dim); }
+  /* FOOTER */
+  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 48px 24px 36px; text-align: center; }
+  .footer-pactus { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .footer-pactus-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); }
+  .footer-pactus-box { display: inline-flex; align-items: center; gap: 14px; padding: 14px 28px; background: var(--surface); border: 1px solid rgba(0,210,255,0.18); border-radius: 10px; box-shadow: 0 0 20px rgba(0,210,255,0.04); }
+  .footer-pactus-box img { width: 42px; height: 42px; }
+  .footer-pactus-name { font-family: 'Syne',sans-serif; font-weight: 800; font-size: 1rem; background: linear-gradient(90deg,#00d2ff,#3a7bd5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .footer-pactus-sub { font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px; }
+  .footer-pactus-link { display: inline-flex; align-items: center; gap: 7px; padding: 8px 22px; background: rgba(0,210,255,0.07); border: 1px solid rgba(0,210,255,0.28); border-radius: 50px; color: var(--accent); text-decoration: none; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; transition: background 0.2s,box-shadow 0.2s; }
+  .footer-pactus-link:hover { background: rgba(0,210,255,0.15); box-shadow: 0 0 20px rgba(0,210,255,0.2); }
+  .footer-copy { font-size: 0.68rem; color: var(--text-dim); }
   .footer-copy span { color: var(--accent); }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeDown {
-    from { opacity:0; transform:translateY(-16px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(20px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-  .reveal { opacity:1; transform:translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
+  /* ANIMATIONS */
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ── DIVIDER ── */
-  .divider {
-    border: none; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 0;
-  }
+  .divider { border: none; height: 1px; background: linear-gradient(90deg,transparent,var(--border),transparent); margin: 0; }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
-    nav { padding: 14px 20px; }
+    nav { padding: 12px 18px; top: 45px; }
     .nav-links { display: none; }
     .about-grid { grid-template-columns: 1fr; }
     .stats-bar { gap: 0; }
-    .stat-item { min-width: 120px; padding: 18px 12px; }
+    .stat-item { min-width: 90px; padding: 16px 10px; }
+    .pactus-banner { gap: 10px; }
   }
 
-  /* ── GRID DECORATION ── */
-  .hero::after {
-    content: '';
-    position: absolute; inset: 0; pointer-events: none;
-    background-image:
-      linear-gradient(rgba(0,210,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,210,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-  }
+  .hero::after { content: ''; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(0,210,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,210,255,0.03) 1px,transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at center,black 30%,transparent 80%); }
 
-  /* Floating particles */
-  .particle {
-    position: fixed; pointer-events: none; z-index: 0;
-    width: 2px; height: 2px; border-radius: 50%;
-    background: var(--accent); opacity: 0;
-    animation: floatUp linear infinite;
-  }
-  @keyframes floatUp {
-    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-    10% { opacity: 0.6; }
-    90% { opacity: 0.2; }
-    100% { transform: translateY(-100px) translateX(40px); opacity: 0; }
-  }
+  .particle { position: fixed; pointer-events: none; z-index: 0; width: 2px; height: 2px; border-radius: 50%; background: var(--accent); opacity: 0; animation: floatUp linear infinite; }
+  @keyframes floatUp { 0%{transform:translateY(100vh);opacity:0} 10%{opacity:0.5} 90%{opacity:0.15} 100%{transform:translateY(-100px) translateX(40px);opacity:0} }
 </style>
 </head>
 <body>
 
-<!-- Particles -->
 <div id="stars"></div>
+
+<!-- PACTUS TOP BANNER -->
+<div class="pactus-banner">
+  <div class="pactus-banner-inner">
+    <img src="assets/pactus-logo-circle.svg" alt="Pactus">
+    <div class="pactus-banner-text">
+      Supported by <strong>Pactus Network</strong> &mdash; Investor &amp; Partner
+    </div>
+  </div>
+  <a href="https://pactus.org/" target="_blank" class="pactus-banner-link">
+    <svg viewBox="0 0 16 16" fill="none" width="11" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Visit Pactus
+  </a>
+</div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="https://raw.githubusercontent.com/Pilex3173/kanaya3173/main/logo.jpg" alt="pilex3173 logo" onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 40 40&quot;><rect width=&quot;40&quot; height=&quot;40&quot; rx=&quot;20&quot; fill=&quot;%230b1520&quot;/><text x=&quot;50%&quot; y=&quot;55%&quot; text-anchor=&quot;middle&quot; dominant-baseline=&quot;middle&quot; fill=&quot;%2300d2ff&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot; font-family=&quot;monospace&quot;>P</text></svg>'">
+    <img src="logo.jpg" alt="pilex3173" onerror="this.src='https://raw.githubusercontent.com/Pilex3173/kanaya3173/main/logo.jpg'">
     <span>pilex3173</span>
   </div>
   <div class="nav-links">
@@ -398,15 +221,12 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">⬡ Active Blockchain Validator</div>
-  <img class="hero-logo"
-    src="https://raw.githubusercontent.com/Pilex3173/kanaya3173/main/logo.jpg"
-    alt="pilex3173"
-    onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 120 120&quot;><rect width=&quot;120&quot; height=&quot;120&quot; rx=&quot;60&quot; fill=&quot;%230b1520&quot;/><text x=&quot;50%&quot; y=&quot;55%&quot; text-anchor=&quot;middle&quot; dominant-baseline=&quot;middle&quot; fill=&quot;%2300d2ff&quot; font-size=&quot;40&quot; font-weight=&quot;bold&quot; font-family=&quot;monospace&quot;>P</text></svg>'">
+  <img class="hero-logo" src="logo.jpg" alt="pilex3173" onerror="this.src='https://raw.githubusercontent.com/Pilex3173/kanaya3173/main/logo.jpg'">
   <h1>pilex3173</h1>
-  <p class="hero-sub">Professional Validator Node Operator · <span>Securing the Decentralized Web</span></p>
+  <p class="hero-sub">Professional Validator Node Operator &middot; <span>Securing the Decentralized Web</span></p>
   <div class="hero-btns">
     <a href="https://explore.pilex.xyz/" target="_blank" class="btn-primary">
-      <svg viewBox="0 0 20 20" fill="none" width="16" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 20 20" fill="none" width="15" xmlns="http://www.w3.org/2000/svg">
         <circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.5"/>
         <path d="M10 2C10 2 13 6 13 10C13 14 10 18 10 18" stroke="white" stroke-width="1.5"/>
         <path d="M10 2C10 2 7 6 7 10C7 14 10 18 10 18" stroke="white" stroke-width="1.5"/>
@@ -415,7 +235,7 @@
       Explore
     </a>
     <a href="#validators" class="btn-outline">
-      <svg viewBox="0 0 20 20" fill="none" width="16" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 20 20" fill="none" width="15" xmlns="http://www.w3.org/2000/svg">
         <rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
         <rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
         <rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
@@ -426,25 +246,13 @@
   </div>
 </section>
 
-<!-- STATS BAR -->
+<!-- STATS -->
 <div class="container">
-  <div class="stats-bar reveal">
-    <div class="stat-item">
-      <div class="stat-num">5</div>
-      <div class="stat-label">Active Nodes</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">4</div>
-      <div class="stat-label">Testnets</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">1</div>
-      <div class="stat-label">Mainnets</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">99%</div>
-      <div class="stat-label">Uptime</div>
-    </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Active Nodes</div></div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Testnets</div></div>
+    <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Mainnets</div></div>
+    <div class="stat-item"><div class="stat-num">99%</div><div class="stat-label">Uptime</div></div>
   </div>
 </div>
 
@@ -453,16 +261,66 @@
 <!-- VALIDATORS -->
 <section id="validators">
   <div class="container">
-    <div class="section-label reveal">// validator nodes</div>
-    <h2 class="section-title reveal">My <em>Active</em> Validators</h2>
-
+    <div class="section-label">// validator nodes</div>
+    <h2 class="section-title">My <em>Active</em> Validators</h2>
     <div class="validators-grid">
 
-      <!-- Emperia -->
-      <div class="val-card reveal">
+      <!-- PACTUS — investor, shown first -->
+      <div class="val-card pactus-card">
         <div class="val-header">
-          <div class="val-chain">Emperia Network</div>
-          <span class="val-badge badge-testnet">Testnet</span>
+          <img class="val-logo" src="assets/pactus-logo-circle.svg" alt="Pactus">
+          <div class="val-header-info">
+            <div class="val-header-top">
+              <div class="val-chain">Pactus Network</div>
+              <span class="val-badge badge-investor">✦ Mainnet</span>
+            </div>
+          </div>
+        </div>
+        <div class="val-addr">
+          <span>pc1p</span>…view full address on explorer
+        </div>
+        <a href="https://pacviewer.com/" target="_blank" class="btn-delegate pactus-btn">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M3 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          View on Explorer
+        </a>
+      </div>
+
+      <!-- LUMEN MAINNET -->
+      <div class="val-card mainnet-card">
+        <div class="val-header">
+          <img class="val-logo" src="assets/lumera.png" alt="Lumen" onerror="this.style.display='none'">
+          <div class="val-header-info">
+            <div class="val-header-top">
+              <div class="val-chain">Lumen Network</div>
+              <span class="val-badge badge-mainnet">✦ Mainnet</span>
+            </div>
+          </div>
+        </div>
+        <div class="val-addr">
+          <span>lmnvaloper</span>16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd
+        </div>
+        <a href="https://explorer.maouam.nodelab.my.id/lumen-mainnet/staking/lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd" target="_blank" class="btn-delegate mainnet-btn">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M3 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Delegate Now
+        </a>
+      </div>
+
+      <!-- EMPERIA -->
+      <div class="val-card">
+        <div class="val-header">
+          <img class="val-logo" src="assets/empeiria.jpg" alt="Emperia" onerror="this.style.display='none'">
+          <div class="val-header-info">
+            <div class="val-header-top">
+              <div class="val-chain">Emperia Network</div>
+              <span class="val-badge badge-testnet">Testnet</span>
+            </div>
+          </div>
         </div>
         <div class="val-addr">
           <span>empevaloper</span>1cf7kj0rcfteqepuh8cjxlrkw432xyzzm3hcv4l
@@ -476,11 +334,16 @@
         </a>
       </div>
 
-      <!-- Lumera -->
-      <div class="val-card reveal">
+      <!-- LUMERA TESTNET -->
+      <div class="val-card">
         <div class="val-header">
-          <div class="val-chain">Lumera Network</div>
-          <span class="val-badge badge-testnet">Testnet</span>
+          <img class="val-logo" src="assets/lumera.png" alt="Lumera" onerror="this.style.display='none'">
+          <div class="val-header-info">
+            <div class="val-header-top">
+              <div class="val-chain">Lumera Network</div>
+              <span class="val-badge badge-testnet">Testnet</span>
+            </div>
+          </div>
         </div>
         <div class="val-addr">
           <span>lumeravaloper</span>177z7qclpqs5mcwwj7g2j4k5s28hjrtgtgl6g7w
@@ -494,11 +357,16 @@
         </a>
       </div>
 
-      <!-- Safrochain -->
-      <div class="val-card reveal">
+      <!-- SAFROCHAIN -->
+      <div class="val-card">
         <div class="val-header">
-          <div class="val-chain">Safrochain</div>
-          <span class="val-badge badge-testnet">Testnet</span>
+          <img class="val-logo" src="assets/shardeum.png" alt="Safrochain" onerror="this.style.display='none'">
+          <div class="val-header-info">
+            <div class="val-header-top">
+              <div class="val-chain">Safrochain</div>
+              <span class="val-badge badge-testnet">Testnet</span>
+            </div>
+          </div>
         </div>
         <div class="val-addr">
           addr_<span>safrovaloper</span>153zu8tzcnefdt00w3tpual74e83e6xgf2rrkdd
@@ -512,34 +380,21 @@
         </a>
       </div>
 
-      <!-- Push Chain -->
-      <div class="val-card reveal">
+      <!-- PUSH CHAIN -->
+      <div class="val-card">
         <div class="val-header">
-          <div class="val-chain">Push Chain</div>
-          <span class="val-badge badge-testnet">Testnet</span>
+          <img class="val-logo" src="assets/pipe-network.png" alt="Push Chain" onerror="this.style.display='none'">
+          <div class="val-header-info">
+            <div class="val-header-top">
+              <div class="val-chain">Push Chain</div>
+              <span class="val-badge badge-testnet">Testnet</span>
+            </div>
+          </div>
         </div>
         <div class="val-addr">
           <span>pushvaloper</span>1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9
         </div>
         <a href="https://explorer.maouam.nodelab.my.id/pushchain-testnet/staking/pushvaloper1nsmr924rlnnzsrqjy6d5uxld57hacjj20q5dv9" target="_blank" class="btn-delegate">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M3 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          Delegate Now
-        </a>
-      </div>
-
-      <!-- Lumen Mainnet -->
-      <div class="val-card reveal" style="border-color: rgba(0,210,255,0.3); background: linear-gradient(135deg, #0b1520, #0d1e30);">
-        <div class="val-header">
-          <div class="val-chain">Lumen Network</div>
-          <span class="val-badge badge-mainnet">✦ Mainnet</span>
-        </div>
-        <div class="val-addr">
-          <span>lmnvaloper</span>16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd
-        </div>
-        <a href="https://explorer.maouam.nodelab.my.id/lumen-mainnet/staking/lmnvaloper16gs4r22e92shqesjq5n66w7ctqwflzjf63xrsd" target="_blank" class="btn-delegate" style="background: linear-gradient(135deg, rgba(0,210,255,0.2), rgba(58,123,213,0.2)); border-color: rgba(0,210,255,0.6);">
           <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M3 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -558,47 +413,29 @@
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-text reveal">
+      <div class="about-text">
         <div class="section-label">// about</div>
-        <h2 class="section-title" style="margin-bottom:24px;">Who is <em>pilex3173</em>?</h2>
-        <p>
-          A <strong>professional validator node operator</strong> dedicated to securing blockchain networks and supporting the decentralization of the Web3 ecosystem.
-        </p>
-        <p>
-          With experience running nodes across multiple <strong>testnets and mainnets</strong>, pilex3173 is committed to delivering top performance with high uptime and ironclad security.
-        </p>
-        <p>
-          Join the journey of building a blockchain infrastructure that is <strong>reliable, secure, and truly decentralized</strong>.
-        </p>
+        <h2 class="section-title" style="margin-bottom:22px;">Who is <em>pilex3173</em>?</h2>
+        <p>A <strong>professional validator node operator</strong> dedicated to securing blockchain networks and supporting the decentralization of the Web3 ecosystem.</p>
+        <p>With experience running nodes across multiple <strong>testnets and mainnets</strong>, pilex3173 is committed to delivering top performance with high uptime and ironclad security.</p>
+        <p>Join the journey of building a blockchain infrastructure that is <strong>reliable, secure, and truly decentralized</strong>.</p>
       </div>
-      <div class="about-features reveal">
+      <div class="about-features">
         <div class="feature-item">
           <div class="feature-icon">🔒</div>
-          <div class="feature-text">
-            <strong>High Security</strong>
-            <span>Infrastructure protected 24/7</span>
-          </div>
+          <div class="feature-text"><strong>High Security</strong><span>Infrastructure protected 24/7</span></div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">⚡</div>
-          <div class="feature-text">
-            <strong>High Performance</strong>
-            <span>Low latency, high uptime</span>
-          </div>
+          <div class="feature-text"><strong>High Performance</strong><span>Low latency, high uptime</span></div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🌐</div>
-          <div class="feature-text">
-            <strong>Multi-Chain Support</strong>
-            <span>5 active chains & growing</span>
-          </div>
+          <div class="feature-text"><strong>Multi-Chain Support</strong><span>6 active chains &amp; growing</span></div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🤝</div>
-          <div class="feature-text">
-            <strong>Community Driven</strong>
-            <span>Transparent & open for delegation</span>
-          </div>
+          <div class="feature-text"><strong>Community Driven</strong><span>Transparent &amp; open for delegation</span></div>
         </div>
       </div>
     </div>
@@ -610,14 +447,13 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="section-label reveal">// contact</div>
-    <h2 class="section-title reveal">Get in <em>Touch</em></h2>
+    <div class="section-label">// contact</div>
+    <h2 class="section-title">Get in <em>Touch</em></h2>
     <div class="contact-grid">
 
-      <!-- Twitter -->
-      <a href="https://twitter.com/ardihandoyo" target="_blank" class="contact-card reveal">
+      <a href="https://twitter.com/ardihandoyo" target="_blank" class="contact-card">
         <span class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30" style="color:#00d2ff">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
         </span>
@@ -625,10 +461,9 @@
         <div class="contact-handle">@ardihandoyo</div>
       </a>
 
-      <!-- Discord -->
-      <a href="https://discord.com/users/rahmatardihandoyo" target="_blank" class="contact-card reveal">
+      <a href="https://discord.com/users/rahmatardihandoyo" target="_blank" class="contact-card">
         <span class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30" style="color:#00d2ff">
             <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
           </svg>
         </span>
@@ -636,10 +471,9 @@
         <div class="contact-handle">rahmatardihandoyo</div>
       </a>
 
-      <!-- Telegram -->
-      <a href="https://t.me/Rahmat3173" target="_blank" class="contact-card reveal">
+      <a href="https://t.me/Rahmat3173" target="_blank" class="contact-card">
         <span class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30" style="color:#00d2ff">
             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
           </svg>
         </span>
@@ -647,10 +481,9 @@
         <div class="contact-handle">@Rahmat3173</div>
       </a>
 
-      <!-- Email Official -->
-      <a href="mailto:pilex@pilex.xyz" class="contact-card reveal">
+      <a href="mailto:pilex@pilex.xyz" class="contact-card">
         <span class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" style="color:#00d2ff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="30" height="30" style="color:#00d2ff">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <path d="M2 7l10 7 10-7"/>
           </svg>
@@ -659,10 +492,9 @@
         <div class="contact-handle">pilex@pilex.xyz</div>
       </a>
 
-      <!-- Email Personal -->
-      <a href="mailto:rahmatardihandoyo@gmail.com" class="contact-card reveal">
+      <a href="mailto:rahmatardihandoyo@gmail.com" class="contact-card">
         <span class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#00d2ff">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30" style="color:#00d2ff">
             <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.147C21.69 2.28 24 3.434 24 5.457z"/>
           </svg>
         </span>
@@ -676,14 +508,20 @@
 
 <!-- FOOTER -->
 <footer>
-  <div style="margin-bottom: 32px;">
-    <div style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:#6a8fa8; margin-bottom:16px;">— Partner —</div>
-    <a href="https://pactus.org/" target="_blank" class="powered-by">
-      <img src="assets/pactus-logo-circle.svg" alt="Pactus Network" width="44" height="44" style="display:block;">
+  <div class="footer-pactus">
+    <div class="footer-pactus-label">— Investor &amp; Partner —</div>
+    <div class="footer-pactus-box">
+      <img src="assets/pactus-logo-circle.svg" alt="Pactus Network">
       <div>
-        <div class="powered-by-text" style="font-size:0.65rem; color:#6a8fa8; letter-spacing:0.15em;">POWERED BY</div>
-        <div style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; background:linear-gradient(90deg,#00d2ff,#3a7bd5); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">PACTUS NETWORK</div>
+        <div class="footer-pactus-name">PACTUS NETWORK</div>
+        <div class="footer-pactus-sub">Powered by</div>
       </div>
+    </div>
+    <a href="https://pactus.org/" target="_blank" class="footer-pactus-link">
+      <svg viewBox="0 0 16 16" fill="none" width="11" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Visit pactus.org
     </a>
   </div>
   <div class="footer-copy">
@@ -692,56 +530,33 @@
 </footer>
 
 <script>
-  // ── Starfield canvas ──
   (function() {
     const canvas = document.createElement('canvas');
     document.getElementById('stars').appendChild(canvas);
     const ctx = canvas.getContext('2d');
     let stars = [];
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    for (let i = 0; i < 180; i++) {
-      stars.push({
-        x: Math.random(), y: Math.random(),
-        r: Math.random() * 1.2 + 0.2,
-        o: Math.random() * 0.6 + 0.1,
-        speed: Math.random() * 0.0002 + 0.00005
-      });
-    }
-
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+    for (let i = 0; i < 180; i++) stars.push({ x:Math.random(), y:Math.random(), r:Math.random()*1.2+0.2, o:Math.random()*0.6+0.1, speed:Math.random()*0.0002+0.00005 });
     function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0,0,canvas.width,canvas.height);
       stars.forEach(s => {
-        ctx.beginPath();
-        ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180,220,255,${s.o})`;
-        ctx.fill();
-        s.y -= s.speed;
-        if (s.y < 0) { s.y = 1; s.x = Math.random(); }
+        ctx.beginPath(); ctx.arc(s.x*canvas.width, s.y*canvas.height, s.r, 0, Math.PI*2);
+        ctx.fillStyle=`rgba(180,220,255,${s.o})`; ctx.fill();
+        s.y -= s.speed; if(s.y<0){s.y=1;s.x=Math.random();}
       });
       requestAnimationFrame(draw);
     }
     draw();
   })();
 
-  // ── Floating particles ──
   for (let i = 0; i < 12; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = (Math.random() * 100) + '%';
-    p.style.animationDuration = (8 + Math.random() * 12) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
-    p.style.opacity = (0.2 + Math.random() * 0.4);
+    const p = document.createElement('div'); p.className = 'particle';
+    p.style.left = (Math.random()*100)+'%';
+    p.style.animationDuration = (8+Math.random()*12)+'s';
+    p.style.animationDelay = (Math.random()*10)+'s';
     document.body.appendChild(p);
   }
-
-
 </script>
 </body>
 </html>
